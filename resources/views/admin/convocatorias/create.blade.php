@@ -1,15 +1,15 @@
 @extends('admin.layout')
 
-@section('page-title', 'Nuevo Boletín')
+@section('page-title', 'Nueva Convocatoria')
 
 @section('content')
 <div class="max-w-2xl">
-    <a href="{{ route('admin.boletines.index') }}" class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-[#7B2D8E] mb-6 transition">
+    <a href="{{ route('admin.convocatorias.index') }}" class="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-[#7B2D8E] mb-6 transition">
         <i class="fas fa-arrow-left"></i> Volver al listado
     </a>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <form action="{{ route('admin.boletines.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
+        <form action="{{ route('admin.convocatorias.store') }}" method="POST" enctype="multipart/form-data" class="space-y-5">
             @csrf
 
             <div>
@@ -51,14 +51,14 @@
             <div class="flex items-center gap-2">
                 <input type="checkbox" id="activo" name="activo" value="1" checked
                        class="rounded border-gray-300 text-[#7B2D8E] focus:ring-[#7B2D8E]">
-                <label for="activo" class="text-sm text-gray-700">Activo</label>
+                <label for="activo" class="text-sm text-gray-700">Activa</label>
             </div>
 
             <div class="flex gap-3 pt-2">
                 <button type="submit" class="bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white font-semibold py-2.5 px-6 rounded-lg text-sm transition">
                     <i class="fas fa-save mr-1"></i> Guardar
                 </button>
-                <a href="{{ route('admin.boletines.index') }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2.5 px-6 rounded-lg text-sm transition">
+                <a href="{{ route('admin.convocatorias.index') }}" class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2.5 px-6 rounded-lg text-sm transition">
                     Cancelar
                 </a>
             </div>

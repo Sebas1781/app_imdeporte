@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
-@section('title', 'Todos los Boletines - ODAPAS Tecámac')
+@section('title', 'Todos los Boletines - IMDEPORTE Tecámac')
 
 @section('content')
 
 {{-- Header --}}
-<section class="bg-linear-to-r from-[#00839B] to-[#45c6e0] py-12">
+<section class="bg-linear-to-r from-[#7B2D8E] to-[#A855A0] py-12">
     <div class="max-w-6xl mx-auto px-4 text-center">
         <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-2">Boletines de Interés</h1>
-        <p class="text-white/80 text-sm">Mantente informado sobre las noticias y actividades de ODAPAS Tecámac</p>
+        <p class="text-white/80 text-sm">Mantente informado sobre las noticias y actividades de IMDEPORTE Tecámac</p>
     </div>
 </section>
 
@@ -29,7 +29,7 @@
                             @endif
                         </div>
                         <div class="p-5">
-                            <span class="text-xs font-bold text-[#00839B] bg-[#e8f7fa] px-2 py-1 rounded">
+                            <span class="text-xs font-bold text-[#7B2D8E] bg-[#f3e8f7] px-2 py-1 rounded">
                                 {{ $boletin->fecha->translatedFormat('d F, Y') }}
                             </span>
                             <h4 class="text-gray-800 font-bold mt-3 text-sm leading-snug">{{ $boletin->titulo }}</h4>
@@ -52,7 +52,7 @@
 
         {{-- Back to home --}}
         <div class="flex justify-center mt-8">
-            <a href="/" class="inline-flex items-center gap-2 text-[#00839B] hover:text-[#006d82] font-semibold transition">
+            <a href="/" class="inline-flex items-center gap-2 text-[#7B2D8E] hover:text-[#5c1a6e] font-semibold transition">
                 <i class="fas fa-arrow-left"></i> Volver al inicio
             </a>
         </div>

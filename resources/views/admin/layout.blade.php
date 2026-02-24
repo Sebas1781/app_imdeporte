@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin - ODAPAS Tecámac')</title>
-    <link rel="icon" type="image/png" href="/images/odapasLogo.png">
+    <title>@yield('title', 'Admin - IMDEPORTE Tecámac')</title>
+    <link rel="icon" type="image/png" href="/images/logoImdeporte.png">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -18,12 +18,12 @@
 <body class="font-sans antialiased bg-gray-100 text-gray-800">
     <div class="min-h-screen flex">
         {{-- Sidebar --}}
-        <aside id="sidebar" class="w-64 bg-[#0c2d48] text-white flex-shrink-0 fixed inset-y-0 left-0 z-30 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-200 ease-in-out">
+        <aside id="sidebar" class="w-64 bg-[#3D1252] text-white flex-shrink-0 fixed inset-y-0 left-0 z-30 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-200 ease-in-out">
             <div class="p-6 border-b border-white/10">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
-                    <img src="/images/odapasLogo.png" alt="ODAPAS" class="h-10 w-auto bg-white rounded px-2 py-1">
+                    <img src="/images/logoImdeporte.png" alt="IMDEPORTE" class="h-10 w-auto bg-white rounded px-2 py-1">
                     <div>
-                        <span class="font-bold text-sm block">ODAPAS</span>
+                        <span class="font-bold text-sm block">IMDEPORTE</span>
                         <span class="text-xs text-gray-300">Panel Admin</span>
                     </div>
                 </a>
@@ -32,25 +32,31 @@
             <nav class="p-4 space-y-1">
                 <a href="{{ route('admin.dashboard') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
-                          {{ request()->routeIs('admin.dashboard') ? 'bg-[#00839B] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                          {{ request()->routeIs('admin.dashboard') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
                     <i class="fas fa-tachometer-alt w-5 text-center"></i>
                     Dashboard
                 </a>
                 <a href="{{ route('admin.carousel.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
-                          {{ request()->routeIs('admin.carousel.*') ? 'bg-[#00839B] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                          {{ request()->routeIs('admin.carousel.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
                     <i class="fas fa-images w-5 text-center"></i>
                     Carrusel Inicio
                 </a>
                 <a href="{{ route('admin.boletines.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
-                          {{ request()->routeIs('admin.boletines.*') ? 'bg-[#00839B] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                          {{ request()->routeIs('admin.boletines.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
                     <i class="fas fa-newspaper w-5 text-center"></i>
                     Boletines
                 </a>
+                <a href="{{ route('admin.convocatorias.index') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.convocatorias.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-bullhorn w-5 text-center"></i>
+                    Convocatorias
+                </a>
                 <a href="{{ route('admin.users.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
-                          {{ request()->routeIs('admin.users.*') ? 'bg-[#00839B] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                          {{ request()->routeIs('admin.users.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
                     <i class="fas fa-users w-5 text-center"></i>
                     Usuarios
                 </a>
@@ -86,7 +92,7 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <span class="text-sm text-gray-500">{{ auth()->user()->name }}</span>
-                    <div class="w-8 h-8 bg-[#00839B] rounded-full flex items-center justify-center text-white text-sm font-bold">
+                    <div class="w-8 h-8 bg-[#7B2D8E] rounded-full flex items-center justify-center text-white text-sm font-bold">
                         {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                     </div>
                 </div>
@@ -188,7 +194,7 @@
                 <p class="text-sm text-gray-500 mb-6 modal-text-anim">{{ session('error') }}</p>
             @endif
             <div class="modal-btn-anim">
-                <button onclick="closeFlashModal()" class="bg-[#00839B] hover:bg-[#006d82] text-white font-semibold py-2.5 px-10 rounded-lg text-sm transition hover:scale-105 active:scale-95 transform">
+                <button onclick="closeFlashModal()" class="bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white font-semibold py-2.5 px-10 rounded-lg text-sm transition hover:scale-105 active:scale-95 transform">
                     Aceptar
                 </button>
             </div>

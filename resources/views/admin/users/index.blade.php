@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex items-center justify-between mb-6">
     <p class="text-sm text-gray-500">Administra los usuarios del sistema</p>
-    <a href="{{ route('admin.users.create') }}" class="inline-flex items-center gap-2 bg-[#00839B] hover:bg-[#006d82] text-white font-semibold py-2 px-4 rounded-lg text-sm transition">
+    <a href="{{ route('admin.users.create') }}" class="inline-flex items-center gap-2 bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white font-semibold py-2 px-4 rounded-lg text-sm transition">
         <i class="fas fa-user-plus"></i> Nuevo Usuario
     </a>
 </div>
@@ -26,7 +26,7 @@
                 <tr class="hover:bg-gray-50 transition">
                     <td class="px-6 py-4">
                         <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 bg-[#00839B] rounded-full flex items-center justify-center text-white text-sm font-bold">
+                            <div class="w-8 h-8 bg-[#7B2D8E] rounded-full flex items-center justify-center text-white text-sm font-bold">
                                 {{ strtoupper(substr($user->name, 0, 1)) }}
                             </div>
                             <span class="font-medium text-gray-800">{{ $user->name }}</span>

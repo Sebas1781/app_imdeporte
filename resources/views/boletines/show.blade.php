@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', $boletin->titulo . ' - ODAPAS Tecámac')
+@section('title', $boletin->titulo . ' - IMDEPORTE Tecámac')
 
 @section('content')
 
 {{-- Header --}}
-<section class="bg-linear-to-r from-[#00839B] to-[#45c6e0] py-10">
+<section class="bg-linear-to-r from-[#7B2D8E] to-[#A855A0] py-10">
     <div class="max-w-4xl mx-auto px-4">
         <a href="{{ route('boletines.index') }}" class="inline-flex items-center gap-2 text-white/80 hover:text-white text-sm mb-4 transition">
             <i class="fas fa-arrow-left"></i> Todos los boletines
@@ -35,13 +35,13 @@
 
             {{-- External link if available --}}
             @if($boletin->url_externa && trim($boletin->url_externa) !== '')
-                <div class="mt-8 p-4 bg-[#e8f7fa] rounded-lg border border-[#00839B]/20">
+                <div class="mt-8 p-4 bg-[#f3e8f7] rounded-lg border border-[#7B2D8E]/20">
                     <p class="text-sm text-gray-600 mb-2">
-                        <i class="fas fa-external-link-alt text-[#00839B] mr-1"></i>
+                        <i class="fas fa-external-link-alt text-[#7B2D8E] mr-1"></i>
                         Este boletín tiene un enlace externo:
                     </p>
                     <a href="{{ $boletin->url_externa }}" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center gap-2 bg-[#00839B] hover:bg-[#006d82] text-white font-semibold py-2 px-5 rounded-lg text-sm transition">
+                       class="inline-flex items-center gap-2 bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white font-semibold py-2 px-5 rounded-lg text-sm transition">
                         <i class="fas fa-external-link-alt"></i> Ver enlace completo
                     </a>
                 </div>
@@ -50,7 +50,7 @@
 
         {{-- Navigation --}}
         <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-10 pt-8 border-t border-gray-200">
-            <a href="{{ route('boletines.index') }}" class="inline-flex items-center gap-2 text-[#00839B] hover:text-[#006d82] font-semibold transition">
+            <a href="{{ route('boletines.index') }}" class="inline-flex items-center gap-2 text-[#7B2D8E] hover:text-[#5c1a6e] font-semibold transition">
                 <i class="fas fa-arrow-left"></i> Ver todos los boletines
             </a>
             <a href="/" class="inline-flex items-center gap-2 text-gray-500 hover:text-gray-700 text-sm transition">
@@ -79,7 +79,7 @@
                         @endif
                     </div>
                     <div class="p-5">
-                        <span class="text-xs font-bold text-[#00839B] bg-[#e8f7fa] px-2 py-1 rounded">
+                        <span class="text-xs font-bold text-[#7B2D8E] bg-[#f3e8f7] px-2 py-1 rounded">
                             {{ $reciente->fecha->translatedFormat('d F, Y') }}
                         </span>
                         <h4 class="text-gray-800 font-bold mt-3 text-sm leading-snug">{{ $reciente->titulo }}</h4>

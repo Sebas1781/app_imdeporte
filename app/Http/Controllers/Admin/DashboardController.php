@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Boletin;
 use App\Models\CarouselItem;
+use App\Models\Convocatoria;
 use App\Models\User;
 
 class DashboardController extends Controller
@@ -14,6 +15,8 @@ class DashboardController extends Controller
         $stats = [
             'carousel_items' => CarouselItem::count(),
             'boletines' => Boletin::count(),
+            'convocatorias' => Convocatoria::count(),
+            'convocatorias_activas' => Convocatoria::where('activo', true)->count(),
             'users' => User::count(),
             'boletines_activos' => Boletin::where('activo', true)->count(),
         ];

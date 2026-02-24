@@ -3,16 +3,20 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BoletinPublicController;
+use App\Http\Controllers\ConvocatoriaPublicController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\BoletinController;
+use App\Http\Controllers\Admin\ConvocatoriaController;
 use App\Http\Controllers\Admin\UserController;
 
 // Public routes
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/boletines', [BoletinPublicController::class, 'index'])->name('boletines.index');
 Route::get('/boletines/{boletin}', [BoletinPublicController::class, 'show'])->name('boletines.show');
+Route::get('/convocatorias', [ConvocatoriaPublicController::class, 'index'])->name('convocatorias.index');
+Route::get('/convocatorias/{convocatoria}', [ConvocatoriaPublicController::class, 'show'])->name('convocatorias.show');
 
 // Auth routes
 Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
@@ -38,6 +42,14 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/boletines/{boletin}/edit', [BoletinController::class, 'edit'])->name('boletines.edit');
     Route::put('/boletines/{boletin}', [BoletinController::class, 'update'])->name('boletines.update');
     Route::delete('/boletines/{boletin}', [BoletinController::class, 'destroy'])->name('boletines.destroy');
+
+    // Convocatorias CRUD
+    Route::get('/convocatorias', [ConvocatoriaController::class, 'index'])->name('convocatorias.index');
+    Route::get('/convocatorias/create', [ConvocatoriaController::class, 'create'])->name('convocatorias.create');
+    Route::post('/convocatorias', [ConvocatoriaController::class, 'store'])->name('convocatorias.store');
+    Route::get('/convocatorias/{convocatoria}/edit', [ConvocatoriaController::class, 'edit'])->name('convocatorias.edit');
+    Route::put('/convocatorias/{convocatoria}', [ConvocatoriaController::class, 'update'])->name('convocatorias.update');
+    Route::delete('/convocatorias/{convocatoria}', [ConvocatoriaController::class, 'destroy'])->name('convocatorias.destroy');
 
     // Users CRUD
     Route::get('/users', [UserController::class, 'index'])->name('users.index');

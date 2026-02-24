@@ -5,7 +5,7 @@
 @section('content')
 <div class="flex items-center justify-between mb-6">
     <p class="text-sm text-gray-500">Administra las imágenes del carrusel principal</p>
-    <a href="{{ route('admin.carousel.create') }}" class="inline-flex items-center gap-2 bg-[#00839B] hover:bg-[#006d82] text-white font-semibold py-2 px-4 rounded-lg text-sm transition">
+    <a href="{{ route('admin.carousel.create') }}" class="inline-flex items-center gap-2 bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white font-semibold py-2 px-4 rounded-lg text-sm transition">
         <i class="fas fa-plus"></i> Agregar Imagen
     </a>
 </div>
@@ -63,7 +63,7 @@
                 <tr>
                     <td colspan="5" class="px-6 py-12 text-center text-gray-400">
                         <i class="fas fa-images text-3xl mb-2 block"></i>
-                        No hay imágenes en el carrusel. <a href="{{ route('admin.carousel.create') }}" class="text-[#00839B] hover:underline">Agregar una</a>.
+                        No hay imágenes en el carrusel. <a href="{{ route('admin.carousel.create') }}" class="text-[#7B2D8E] hover:underline">Agregar una</a>.
                     </td>
                 </tr>
             @endforelse
