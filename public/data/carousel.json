@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "titulo": "Banner Principal ODAPAS",
+        "ruta_local": "/images/BannerPrincipal.png",
+        "url_externa": "",
+        "activo": true
+    },
+    {
+        "id": 2,
+        "titulo": "Boletines",
+        "ruta_local": "/images/Boletinesbaner.png",
+        "url_externa": "",
+        "activo": true
+    },
+    {
+        "id": 3,
+        "titulo": "Imagen institucional",
+        "ruta_local": "/images/image2.png",
+        "url_externa": "",
+        "activo": true
+    }
+]

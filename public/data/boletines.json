@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "imagen_local": "/images/img1.png",
+        "imagen_url": "",
+        "fecha": "17 Febrero, 2026",
+        "titulo": "Concluyen los trabajos de colocación de rejillas sobre Av. Vía Real",
+        "descripcion": "Hoy 17 de febrero concluyeron los trabajos de colocación de rejillas tipo Irvin como parte d...",
+        "activo": true
+    },
+    {
+        "id": 2,
+        "imagen_local": "/images/image2.png",
+        "imagen_url": "",
+        "fecha": "16 Febrero, 2026",
+        "titulo": "Continuamos con los trabajos de desazolve en el canal Galaxias del Llano",
+        "descripcion": "Continuamos con los trabajos de desazolve en el canal Galaxias del Llano, ubicado en la...",
+        "activo": true
+    },
+    {
+        "id": 3,
+        "imagen_local": "/images/image3.png",
+        "imagen_url": "",
+        "fecha": "16 Febrero, 2026",
+        "titulo": "¡En Febrero continúan los beneficios para las y los contribuyentes cumplidos!",
+        "descripcion": "Hasta 12% en Predial. Hasta 8% en Agua.",
+        "activo": true
+    }
+]
