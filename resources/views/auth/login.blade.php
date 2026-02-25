@@ -44,7 +44,7 @@
                         </div>
                         <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus
                                class="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#7B2D8E] focus:border-[#7B2D8E] text-sm transition"
-                               placeholder="admin@IMDEPORTE.gob.mx">
+                               placeholder="inserte correo electrónico">
                     </div>
                 </div>
 

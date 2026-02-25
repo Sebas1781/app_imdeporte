@@ -160,7 +160,7 @@
 {{-- 4. IMAGEN MUNICIPIO MEJOR                                              --}}
 {{-- ===================================================================== --}}
 <section class="relative">
-    <img src="/images/municipioMejor.png" alt="El Municipio Mejor" class="w-full h-auto object-cover" style="max-height: 500px;">
+    <img src="/images/fondo1.jpg" alt="El Municipio Mejor" class="w-full h-auto object-cover" style="max-height: 500px;">
 </section>
 
 
@@ -175,7 +175,7 @@
             <a href="https://tecamac.gob.mx/" target="_blank" class="group flex flex-col">
                 <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
                     <div class="h-32 overflow-hidden">
-                        <img src="/images/tecamacCard.png" alt="Tecámac" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <img src="/images/tecamacCard.jpg" alt="Tecámac" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                     </div>
                     <div class="p-3 flex items-center gap-2">
                         <img src="/images/logoTecamac.png" alt="Logo Tecámac" class="h-8 w-auto">
@@ -186,7 +186,7 @@
             <a href="https://dif.tecamac.gob.mx/" target="_blank" class="group flex flex-col">
                 <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
                     <div class="h-32 overflow-hidden">
-                        <img src="/images/imgDif.png" alt="DIF Tecámac" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <img src="/images/imgDif.jpg" alt="DIF Tecámac" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                     </div>
                     <div class="p-3 flex items-center gap-2">
                         <img src="/images/logoDif.png" alt="Logo DIF" class="h-8 w-auto">
@@ -197,7 +197,7 @@
             <a href="https://www.facebook.com/profile.php?id=100068195911608#" target="_blank" class="group flex flex-col">
                 <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
                     <div class="h-32 overflow-hidden">
-                        <img src="/images/imgOdaspas.png" alt="ODAPAS" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <img src="/images/imgOdaspas.jpg" alt="ODAPAS" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                     </div>
                     <div class="p-3 flex items-center gap-2">
                         <img src="/images/odapasLogo.png" alt="Logo ODAPAS" class="h-8 w-auto">
@@ -208,7 +208,7 @@
             <a href="https://www.facebook.com/ComisariaSPTecamac/" target="_blank" class="group flex flex-col">
                 <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
                     <div class="h-32 overflow-hidden">
-                        <img src="/images/imgGuardiaCivil.png" alt="Guardia Civil" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <img src="/images/imgGuardiaCivil.jpg" alt="Guardia Civil" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                     </div>
                     <div class="p-3 flex items-center gap-2">
                         <img src="/images/logoGuardiaCivil.png" alt="Logo Guardia Civil" class="h-8 w-auto">
@@ -219,7 +219,7 @@
             <a href="https://www.facebook.com/UMCFyD/" target="_blank" class="group flex flex-col">
                 <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
                     <div class="h-32 overflow-hidden">
-                        <img src="/images/imgImDeporte.png" alt="ImDeporte" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        <img src="/images/imgImDeporte.jpg" alt="ImDeporte" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                     </div>
                     <div class="p-3 flex items-center gap-2">
                         <img src="/images/logoImdeporte.png" alt="Logo ImDeporte" class="h-8 w-auto">
