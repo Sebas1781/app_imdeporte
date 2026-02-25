@@ -10,8 +10,12 @@ use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\BoletinController;
 use App\Http\Controllers\Admin\ConvocatoriaController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RedSocialController;
 
 // Public routes
+Route::get('/servicios/remtys', fn() => view('servicios.remtys'))->name('servicios.remtys');
+Route::get('/transparencia/ley-contabilidad', fn() => view('transparencia.ley-contabilidad'))->name('transparencia.ley-contabilidad');
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/boletines', [BoletinPublicController::class, 'index'])->name('boletines.index');
 Route::get('/boletines/{boletin}', [BoletinPublicController::class, 'show'])->name('boletines.show');
@@ -50,6 +54,9 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/convocatorias/{convocatoria}/edit', [ConvocatoriaController::class, 'edit'])->name('convocatorias.edit');
     Route::put('/convocatorias/{convocatoria}', [ConvocatoriaController::class, 'update'])->name('convocatorias.update');
     Route::delete('/convocatorias/{convocatoria}', [ConvocatoriaController::class, 'destroy'])->name('convocatorias.destroy');
+
+    // Redes Sociales CRUD
+    Route::resource('/redes-sociales', RedSocialController::class)->names('redes-sociales');
 
     // Users CRUD
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
