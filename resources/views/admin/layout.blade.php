@@ -54,6 +54,7 @@
                     <i class="fas fa-bullhorn w-5 text-center"></i>
                     Convocatorias
                 </a>
+<<<<<<< HEAD
                 <a href="{{ route('admin.programas.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
                           {{ request()->routeIs('admin.programas.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
@@ -71,6 +72,13 @@
                           {{ request()->routeIs('admin.noticias.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
                     <i class="fas fa-newspaper w-5 text-center"></i>
                     Noticias
+=======
+                <a href="{{ route('admin.redes-sociales.index') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.redes-sociales.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-share-alt w-5 text-center"></i>
+                    Redes Sociales
+>>>>>>> 694671eb8100c005866dd9649bac0ac26cf6fc8b
                 </a>
                 <a href="{{ route('admin.users.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition

@@ -74,6 +74,7 @@
 
             {{-- Desktop Nav Links --}}
             <div class="hidden lg:flex items-center gap-1 text-sm font-medium w-full justify-center">
+<<<<<<< HEAD
                 <a href="{{ route('instituto.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Instituto</a>
                 <a href="{{ route('programas.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Programas</a>
                 <a href="{{ route('eventos.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Eventos</a>
@@ -81,6 +82,39 @@
                 <a href="{{ route('cultura-fisica.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Cultura física</a>
                 <a href="{{ route('deporte.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Deporte</a>
                 <a href="{{ route('transparencia.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Transparencia</a>
+=======
+                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Instituto</a>
+
+                {{-- Dropdown: Servicios --}}
+                <div class="relative group">
+                    <button class="flex items-center gap-1 px-3 py-2 rounded hover:bg-[#5c1a6e] transition">
+                        Servicios <i class="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
+                    </button>
+                    <div class="absolute left-0 top-full mt-1 w-52 bg-white text-gray-800 rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="{{ route('servicios.remtys') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-t-xl transition">
+                            <i class="fas fa-clipboard-list text-[#7B2D8E] w-4"></i> REMTYS
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Programas</a>
+                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Eventos</a>
+                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Comunicación</a>
+                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Cultura física</a>
+                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Deporte</a>
+
+                {{-- Dropdown: Transparencia --}}
+                <div class="relative group">
+                    <button class="flex items-center gap-1 px-3 py-2 rounded hover:bg-[#5c1a6e] transition">
+                        Transparencia <i class="fas fa-chevron-down text-xs opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
+                    </button>
+                    <div class="absolute right-0 top-full mt-1 w-72 bg-white text-gray-800 rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="{{ route('transparencia.ley-contabilidad') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-t-xl transition">
+                            <i class="fas fa-landmark text-[#7B2D8E] w-4"></i> Ley General de Contabilidad Gubernamental
+                        </a>
+                    </div>
+                </div>
+>>>>>>> 694671eb8100c005866dd9649bac0ac26cf6fc8b
             </div>
 
             {{-- Search + Mobile menu --}}
@@ -96,6 +130,7 @@
 
         {{-- Mobile Nav --}}
         <div id="mobile-menu" class="lg:hidden hidden bg-[#5c1a6e] px-4 pb-4">
+<<<<<<< HEAD
             <a href="{{ route('instituto.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Instituto</a>
             <a href="{{ route('programas.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Programas</a>
             <a href="{{ route('eventos.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Eventos</a>
@@ -103,6 +138,18 @@
             <a href="{{ route('cultura-fisica.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Cultura física</a>
             <a href="{{ route('deporte.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
             <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
+=======
+            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Instituto</a>
+            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Servicios</a>
+            <a href="{{ route('servicios.remtys') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— REMTYS</a>
+            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Programas</a>
+            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Eventos</a>
+            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Comunicación</a>
+            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Cultura física</a>
+            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
+            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
+            <a href="{{ route('transparencia.ley-contabilidad') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Ley General de Contabilidad Gubernamental</a>
+>>>>>>> 694671eb8100c005866dd9649bac0ac26cf6fc8b
         </div>
     </nav>
 

@@ -38,7 +38,7 @@
 {{-- ===================================================================== --}}
 {{-- 2. CONVOCATORIAS                                                       --}}
 {{-- ===================================================================== --}}
-<section class="relative w-full overflow-hidden" style="height: 280px;">
+<section class="relative w-full overflow-hidden" style="height: 420px;">
     <img src="/images/convocatorias.jpg" alt="Convocatorias" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
@@ -53,20 +53,21 @@
         <div class="relative">
             <div id="convocatorias-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @forelse($convocatorias as $convocatoria)
-                    <a href="{{ route('convocatorias.show', $convocatoria) }}" {{ $convocatoria->url_externa ? 'target=_blank' : '' }} class="bg-white rounded-xl shadow-lg overflow-hidden group border border-gray-100 convocatoria-card hover:shadow-xl transition" style="display: none;">
-                        <div class="h-48 overflow-hidden">
+                    <a href="{{ route('convocatorias.show', $convocatoria) }}" {{ $convocatoria->url_externa ? 'target=_blank' : '' }} class="rounded-xl shadow-lg overflow-hidden group border border-gray-100 convocatoria-card hover:shadow-2xl transition block" style="display: none;">
+                        <div class="relative overflow-hidden" style="aspect-ratio: 1/1;">
                             @if($convocatoria->imagen)
                                 <img src="{{ $convocatoria->imagen }}" alt="{{ $convocatoria->titulo }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                             @else
-                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                                    <i class="fas fa-bullhorn text-gray-400 text-3xl"></i>
+                                <div class="w-full h-full bg-gray-200 flex flex-col items-center justify-center gap-2">
+                                    <i class="fas fa-bullhorn text-gray-400 text-4xl"></i>
+                                    <p class="text-gray-500 text-sm font-semibold text-center px-4">{{ $convocatoria->titulo }}</p>
                                 </div>
                             @endif
-                        </div>
-                        <div class="p-5">
-                            <span class="text-xs font-bold text-[#7B2D8E] bg-[#f3e8f7] px-2 py-1 rounded">{{ $convocatoria->fecha->translatedFormat('d F, Y') }}</span>
-                            <h4 class="text-gray-800 font-bold mt-3 text-sm leading-snug">{{ $convocatoria->titulo }}</h4>
-                            <p class="text-gray-500 text-xs mt-2">{{ Str::limit($convocatoria->descripcion, 100) }}</p>
+                            {{-- Overlay con fecha al hacer hover --}}
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <span class="text-xs font-bold text-white/80">{{ $convocatoria->fecha->translatedFormat('d F, Y') }}</span>
+                                <p class="text-white text-xs font-semibold leading-snug mt-0.5">{{ Str::limit($convocatoria->titulo, 60) }}</p>
+                            </div>
                         </div>
                     </a>
                 @empty
@@ -99,7 +100,7 @@
 {{-- ===================================================================== --}}
 {{-- 3. NOTICIAS DE INTERÉS (BOLETINES)                                     --}}
 {{-- ===================================================================== --}}
-<section class="relative w-full overflow-hidden" style="height: 280px;">
+<section class="relative w-full overflow-hidden" style="height: 420px;">
     <img src="/images/noticias_interes.jpg" alt="Noticias de Interés" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
@@ -172,61 +173,34 @@
         <h3 class="text-xl font-extrabold text-center text-gray-800 mb-8 tracking-wide">REDES SOCIALES INSTITUCIONALES</h3>
 
         <div class="grid grid-cols-2 md:grid-cols-5 gap-5">
-            <a href="https://tecamac.gob.mx/" target="_blank" class="group flex flex-col">
+            @forelse($redesSociales as $red)
+            <a href="{{ $red->url ?? '#' }}" target="_blank" class="group flex flex-col">
                 <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
                     <div class="h-32 overflow-hidden">
-                        <img src="/images/tecamacCard.jpg" alt="Tecámac" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        @if($red->imagen)
+                            <img src="{{ $red->imagen }}" alt="{{ $red->nombre }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                        @else
+                            <div class="w-full h-full bg-gray-100 flex items-center justify-center text-gray-300">
+                                <i class="fas fa-share-alt text-3xl"></i>
+                            </div>
+                        @endif
                     </div>
                     <div class="p-3 flex items-center gap-2">
-                        <img src="/images/logoTecamac.png" alt="Logo Tecámac" class="h-8 w-auto">
+                        @if($red->logo)
+                            <img src="{{ $red->logo }}" alt="Logo {{ $red->nombre }}" class="h-8 w-auto max-w-[80px] object-contain">
+                        @else
+                            <span class="text-xs font-semibold text-gray-700">{{ $red->nombre }}</span>
+                        @endif
                         <i class="fas fa-chevron-right text-gray-400 text-xs ml-auto"></i>
                     </div>
                 </div>
             </a>
-            <a href="https://dif.tecamac.gob.mx/" target="_blank" class="group flex flex-col">
-                <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
-                    <div class="h-32 overflow-hidden">
-                        <img src="/images/imgDif.jpg" alt="DIF Tecámac" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-3 flex items-center gap-2">
-                        <img src="/images/logoDif.png" alt="Logo DIF" class="h-8 w-auto">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs ml-auto"></i>
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=100068195911608#" target="_blank" class="group flex flex-col">
-                <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
-                    <div class="h-32 overflow-hidden">
-                        <img src="/images/imgOdaspas.jpg" alt="ODAPAS" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-3 flex items-center gap-2">
-                        <img src="/images/odapasLogo.png" alt="Logo ODAPAS" class="h-8 w-auto">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs ml-auto"></i>
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.facebook.com/ComisariaSPTecamac/" target="_blank" class="group flex flex-col">
-                <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
-                    <div class="h-32 overflow-hidden">
-                        <img src="/images/imgGuardiaCivil.jpg" alt="Guardia Civil" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-3 flex items-center gap-2">
-                        <img src="/images/logoGuardiaCivil.png" alt="Logo Guardia Civil" class="h-8 w-auto">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs ml-auto"></i>
-                    </div>
-                </div>
-            </a>
-            <a href="https://www.facebook.com/UMCFyD/" target="_blank" class="group flex flex-col">
-                <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group-hover:shadow-xl transition">
-                    <div class="h-32 overflow-hidden">
-                        <img src="/images/imgImDeporte.jpg" alt="ImDeporte" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                    <div class="p-3 flex items-center gap-2">
-                        <img src="/images/logoImdeporte.png" alt="Logo ImDeporte" class="h-8 w-auto">
-                        <i class="fas fa-chevron-right text-gray-400 text-xs ml-auto"></i>
-                    </div>
-                </div>
-            </a>
+            @empty
+            <div class="col-span-full text-center text-gray-400 py-8">
+                <i class="fas fa-share-alt text-3xl mb-2 block"></i>
+                <p>No hay redes sociales registradas.</p>
+            </div>
+            @endforelse
         </div>
     </div>
 </section>
