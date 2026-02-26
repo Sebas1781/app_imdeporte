@@ -74,14 +74,13 @@
 
             {{-- Desktop Nav Links --}}
             <div class="hidden lg:flex items-center gap-1 text-sm font-medium w-full justify-center">
-                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Instituto</a>
-                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Servicios</a>
-                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Programas</a>
-                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Eventos</a>
-                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Comunicación</a>
-                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Cultura física</a>
-                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Deporte</a>
-                <a href="#" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Transparencia</a>
+                <a href="{{ route('instituto.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Instituto</a>
+                <a href="{{ route('programas.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Programas</a>
+                <a href="{{ route('eventos.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Eventos</a>
+                <a href="{{ route('noticias.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Noticias</a>
+                <a href="{{ route('cultura-fisica.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Cultura física</a>
+                <a href="{{ route('deporte.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Deporte</a>
+                <a href="{{ route('transparencia.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Transparencia</a>
             </div>
 
             {{-- Search + Mobile menu --}}
@@ -97,14 +96,13 @@
 
         {{-- Mobile Nav --}}
         <div id="mobile-menu" class="lg:hidden hidden bg-[#5c1a6e] px-4 pb-4">
-            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Instituto</a>
-            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Servicios</a>
-            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Programas</a>
-            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Eventos</a>
-            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Comunicación</a>
-            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Cultura física</a>
-            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
-            <a href="#" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
+            <a href="{{ route('instituto.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Instituto</a>
+            <a href="{{ route('programas.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Programas</a>
+            <a href="{{ route('eventos.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Eventos</a>
+            <a href="{{ route('noticias.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Noticias</a>
+            <a href="{{ route('cultura-fisica.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Cultura física</a>
+            <a href="{{ route('deporte.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
+            <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
         </div>
     </nav>
 

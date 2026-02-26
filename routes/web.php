@@ -4,15 +4,35 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BoletinPublicController;
 use App\Http\Controllers\ConvocatoriaPublicController;
+use App\Http\Controllers\InstitutoController;
+use App\Http\Controllers\ProgramaPublicController;
+use App\Http\Controllers\EventoPublicController;
+use App\Http\Controllers\NoticiaPublicController;
+use App\Http\Controllers\CulturaFisicaController;
+use App\Http\Controllers\DeporteController;
+use App\Http\Controllers\TransparenciaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CarouselController;
 use App\Http\Controllers\Admin\BoletinController;
 use App\Http\Controllers\Admin\ConvocatoriaController;
+use App\Http\Controllers\Admin\ProgramaController;
+use App\Http\Controllers\Admin\EventoController;
+use App\Http\Controllers\Admin\NoticiaController;
 use App\Http\Controllers\Admin\UserController;
 
 // Public routes
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/instituto', [InstitutoController::class, 'index'])->name('instituto.index');
+Route::get('/programas', [ProgramaPublicController::class, 'index'])->name('programas.index');
+Route::get('/programas/{programa}', [ProgramaPublicController::class, 'show'])->name('programas.show');
+Route::get('/eventos', [EventoPublicController::class, 'index'])->name('eventos.index');
+Route::get('/eventos/{evento}', [EventoPublicController::class, 'show'])->name('eventos.show');
+Route::get('/noticias', [NoticiaPublicController::class, 'index'])->name('noticias.index');
+Route::get('/noticias/{noticia}', [NoticiaPublicController::class, 'show'])->name('noticias.show');
+Route::get('/cultura-fisica', [CulturaFisicaController::class, 'index'])->name('cultura-fisica.index');
+Route::get('/deporte', [DeporteController::class, 'index'])->name('deporte.index');
+Route::get('/transparencia', [TransparenciaController::class, 'index'])->name('transparencia.index');
 Route::get('/boletines', [BoletinPublicController::class, 'index'])->name('boletines.index');
 Route::get('/boletines/{boletin}', [BoletinPublicController::class, 'show'])->name('boletines.show');
 Route::get('/convocatorias', [ConvocatoriaPublicController::class, 'index'])->name('convocatorias.index');
@@ -50,6 +70,30 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/convocatorias/{convocatoria}/edit', [ConvocatoriaController::class, 'edit'])->name('convocatorias.edit');
     Route::put('/convocatorias/{convocatoria}', [ConvocatoriaController::class, 'update'])->name('convocatorias.update');
     Route::delete('/convocatorias/{convocatoria}', [ConvocatoriaController::class, 'destroy'])->name('convocatorias.destroy');
+
+    // Programas CRUD
+    Route::get('/programas', [ProgramaController::class, 'index'])->name('programas.index');
+    Route::get('/programas/create', [ProgramaController::class, 'create'])->name('programas.create');
+    Route::post('/programas', [ProgramaController::class, 'store'])->name('programas.store');
+    Route::get('/programas/{programa}/edit', [ProgramaController::class, 'edit'])->name('programas.edit');
+    Route::put('/programas/{programa}', [ProgramaController::class, 'update'])->name('programas.update');
+    Route::delete('/programas/{programa}', [ProgramaController::class, 'destroy'])->name('programas.destroy');
+
+    // Eventos CRUD
+    Route::get('/eventos', [EventoController::class, 'index'])->name('eventos.index');
+    Route::get('/eventos/create', [EventoController::class, 'create'])->name('eventos.create');
+    Route::post('/eventos', [EventoController::class, 'store'])->name('eventos.store');
+    Route::get('/eventos/{evento}/edit', [EventoController::class, 'edit'])->name('eventos.edit');
+    Route::put('/eventos/{evento}', [EventoController::class, 'update'])->name('eventos.update');
+    Route::delete('/eventos/{evento}', [EventoController::class, 'destroy'])->name('eventos.destroy');
+
+    // Noticias CRUD
+    Route::get('/noticias', [NoticiaController::class, 'index'])->name('noticias.index');
+    Route::get('/noticias/create', [NoticiaController::class, 'create'])->name('noticias.create');
+    Route::post('/noticias', [NoticiaController::class, 'store'])->name('noticias.store');
+    Route::get('/noticias/{noticia}/edit', [NoticiaController::class, 'edit'])->name('noticias.edit');
+    Route::put('/noticias/{noticia}', [NoticiaController::class, 'update'])->name('noticias.update');
+    Route::delete('/noticias/{noticia}', [NoticiaController::class, 'destroy'])->name('noticias.destroy');
 
     // Users CRUD
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
