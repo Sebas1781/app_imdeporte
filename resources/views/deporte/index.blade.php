@@ -13,47 +13,71 @@
     </div>
 </section>
 
-{{-- Contenido --}}
-<section class="py-12 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl font-extrabold text-gray-800 mb-4">Departamento de Promoción y Fomento al Deporte</h2>
-            <p class="text-gray-600 text-base leading-relaxed">
-                El IMDEPORTE se dedica a impulsar el talento deportivo de Tecámac. A través de ligas municipales, torneos,
-                estímulos económicos y apoyo a deportistas de alto rendimiento, buscamos que nuestro municipio sea referencia
-                en el deporte a nivel estatal y nacional.
-            </p>
-        </div>
+{{-- Intro --}}
+<section class="py-10 bg-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-2xl font-extrabold text-gray-800 mb-4">¡Es Hora de Moverse!</h2>
+        <p class="text-gray-600 text-base leading-relaxed">
+            No importa si eres un atleta experimentado o si apenas vas a dar tu primer paso; en nuestro municipio hay una cancha,
+            una pista o un gimnasio esperándote. Haz clic en la categoría de tu interés para conocer los detalles de cada disciplina,
+            horarios, sedes y cómo inscribirte.
+        </p>
+        <p class="text-gray-600 text-base leading-relaxed mt-4">
+            ¡Actuálate, diviértete y forma parte de nuestra gran familia deportiva!
+        </p>
+    </div>
+</section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div class="w-12 h-12 bg-[#7B2D8E]/10 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-trophy text-[#7B2D8E] text-xl"></i>
-                </div>
-                <h3 class="font-bold text-gray-800 mb-2">Ligas y Torneos</h3>
-                <p class="text-gray-600 text-sm">Organización de ligas municipales en diversas disciplinas: fútbol, basquetbol, voleibol, atletismo y más.</p>
-            </div>
-            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div class="w-12 h-12 bg-[#7B2D8E]/10 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-star text-[#7B2D8E] text-xl"></i>
-                </div>
-                <h3 class="font-bold text-gray-800 mb-2">Alto Rendimiento</h3>
-                <p class="text-gray-600 text-sm">Apoyo y seguimiento a deportistas tecamaquenses de alto rendimiento que representan al municipio.</p>
-            </div>
-            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div class="w-12 h-12 bg-[#7B2D8E]/10 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-futbol text-[#7B2D8E] text-xl"></i>
-                </div>
-                <h3 class="font-bold text-gray-800 mb-2">Escuelas Deportivas</h3>
-                <p class="text-gray-600 text-sm">Escuelas de iniciación deportiva en diferentes disciplinas para niños y jóvenes del municipio.</p>
-            </div>
-            <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                <div class="w-12 h-12 bg-[#7B2D8E]/10 rounded-lg flex items-center justify-center mb-4">
-                    <i class="fas fa-building text-[#7B2D8E] text-xl"></i>
-                </div>
-                <h3 class="font-bold text-gray-800 mb-2">Infraestructura Deportiva</h3>
-                <p class="text-gray-600 text-sm">Gestión y mantenimiento de espacios deportivos municipales para el uso de la comunidad.</p>
-            </div>
+{{-- Grid de deportes --}}
+<section class="py-10 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+        @php
+        $deportes = [
+            ['icono' => 'ACUATLON.png',              'nombre' => 'Acuatlón'],
+            ['icono' => 'AJEDREZ.png',               'nombre' => 'Ajedrez'],
+            ['icono' => 'ATLETISMO.png',             'nombre' => 'Atletismo'],
+            ['icono' => 'BADMINTON.png',             'nombre' => 'Badminton'],
+            ['icono' => 'BALONCESTO-3X3.png',        'nombre' => 'Baloncesto 3x3'],
+            ['icono' => 'BALONCESTO-5X5.png',        'nombre' => 'Baloncesto 5x5'],
+            ['icono' => 'BEISBOL.png',               'nombre' => 'Beisbol'],
+            ['icono' => 'BOXEO.png',                 'nombre' => 'Boxeo'],
+            ['icono' => 'CACHIBOL.png',              'nombre' => 'Cachibol'],
+            ['icono' => 'CANOTAJE.png',              'nombre' => 'Canotaje'],
+            ['icono' => 'CICLISMO.png',              'nombre' => 'Ciclismo'],
+            ['icono' => 'CLAVADOS.png',              'nombre' => 'Clavados'],
+            ['icono' => 'ESGRIMA.png',               'nombre' => 'Esgrima'],
+            ['icono' => 'FRONTON.png',               'nombre' => 'Frontón'],
+            ['icono' => 'FUTBOL.png',                'nombre' => 'Fútbol'],
+            ['icono' => 'GIMNASIA-ARTISTICA.png',    'nombre' => 'Gim. Artística'],
+            ['icono' => 'GIMNASIA-RITMICA.png',      'nombre' => 'Gim. Rítmica'],
+            ['icono' => 'GIMNASIA-TRAMPOLIN.png',    'nombre' => 'Gim. Trampolín'],
+            ['icono' => 'HANDBOL.png',               'nombre' => 'Handbol'],
+            ['icono' => 'HOCKEY-SOBRE-PASTO.png',   'nombre' => 'Hockey s/pasto'],
+            ['icono' => 'JUDO.png',                  'nombre' => 'Judo'],
+            ['icono' => 'KARATE-DO.png',             'nombre' => 'Karate Do'],
+            ['icono' => 'LEVANTAMIENTO-DE-PESAS.png','nombre' => 'Pesas'],
+            ['icono' => 'NATACION.png',              'nombre' => 'Natación'],
+            ['icono' => 'PENTATLON.png',             'nombre' => 'Pentatión'],
+            ['icono' => 'POLO-ACUATICO.png',         'nombre' => 'Polo acuático'],
+            ['icono' => 'RAQUETBOL.png',             'nombre' => 'Raquetbol'],
+            ['icono' => 'REMO.png',                  'nombre' => 'Remo'],
+            ['icono' => 'SOFTBOL.png',               'nombre' => 'Softbol'],
+            ['icono' => 'SQUASH.png',                'nombre' => 'Squash'],
+            ['icono' => 'TAEKWONDO.png',             'nombre' => 'Taekwondo'],
+            ['icono' => 'TENIS.png',                 'nombre' => 'Tenis'],
+            ['icono' => 'TIRO-CON-ARCO.png',         'nombre' => 'Tiro con arco'],
+            ['icono' => 'TIRO-DEPORTIVO.png',        'nombre' => 'Tiro deportivo'],
+            ['icono' => 'TOCHO.png',                 'nombre' => 'Tocho'],
+            ['icono' => 'VOLEIBOL.png',              'nombre' => 'Voleibol'],
+        ];
+        @endphp
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+            @foreach($deportes as $deporte)
+                <a href="#" class="flex flex-col items-center justify-start p-4 bg-white rounded-xl border border-gray-200 hover:border-[#7B2D8E] hover:shadow-md transition group">
+                    <img src="/images/ICONOS%20DEPORTE/{{ $deporte['icono'] }}" alt="{{ $deporte['nombre'] }}" class="w-16 h-16 object-contain mb-2">
+                    <span class="text-gray-700 text-xs font-semibold text-center leading-tight">{{ $deporte['nombre'] }}</span>
+                </a>
+            @endforeach
         </div>
     </div>
 </section>

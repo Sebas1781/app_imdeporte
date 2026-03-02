@@ -75,7 +75,6 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::put('/convocatorias/{convocatoria}', [ConvocatoriaController::class, 'update'])->name('convocatorias.update');
     Route::delete('/convocatorias/{convocatoria}', [ConvocatoriaController::class, 'destroy'])->name('convocatorias.destroy');
 
-<<<<<<< HEAD
     // Programas CRUD
     Route::get('/programas', [ProgramaController::class, 'index'])->name('programas.index');
     Route::get('/programas/create', [ProgramaController::class, 'create'])->name('programas.create');
@@ -99,10 +98,9 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/noticias/{noticia}/edit', [NoticiaController::class, 'edit'])->name('noticias.edit');
     Route::put('/noticias/{noticia}', [NoticiaController::class, 'update'])->name('noticias.update');
     Route::delete('/noticias/{noticia}', [NoticiaController::class, 'destroy'])->name('noticias.destroy');
-=======
+
     // Redes Sociales CRUD
     Route::resource('/redes-sociales', RedSocialController::class)->names('redes-sociales');
->>>>>>> 694671eb8100c005866dd9649bac0ac26cf6fc8b
 
     // Users CRUD
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
