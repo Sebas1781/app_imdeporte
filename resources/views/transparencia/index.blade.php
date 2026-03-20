@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </a>
-            <a href="#" class="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-[#7B2D8E] hover:shadow-md transition group">
+            <a href="{{ route('aviso-privacidad') }}" class="bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-[#7B2D8E] hover:shadow-md transition group">
                 <div class="flex items-center gap-4">
                     <div class="w-12 h-12 bg-[#7B2D8E]/10 rounded-lg flex items-center justify-center shrink-0">
                         <i class="fas fa-shield-alt text-[#7B2D8E] text-xl"></i>

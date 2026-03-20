@@ -34,26 +34,24 @@
         <div class="relative">
             <div id="actividades-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
+                @forelse($actividades as $act)
                 <div class="actividad-card bg-white rounded-xl shadow border border-gray-100 flex flex-col items-center p-6 text-center">
-                    <img src="/images/ICONOS%20DEPORTE/ATLETISMO.png" alt="Eventos Deportivos" class="w-20 h-20 object-contain mb-4">
-                    <h3 class="font-extrabold text-gray-800 text-base mb-2">EVENTOS DEPORTIVOS</h3>
-                    <p class="text-gray-500 text-sm mb-4">El Imdeporte promueve la cultura física mediante eventos como carreras atléticas, torneos de fútbol, básquetbol y voleibol. Haz clic en la categoría de tu interés para conocer los detalles de cada evento.</p>
-                    <a href="#" class="mt-auto bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white text-sm font-bold py-2 px-8 rounded-full transition">Ver más</a>
+                    @if($act->imagen)
+                        <img src="{{ $act->imagen }}" alt="{{ $act->titulo }}" class="w-20 h-20 object-contain mb-4">
+                    @else
+                        <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-running text-gray-400 text-3xl"></i>
+                        </div>
+                    @endif
+                    <h3 class="font-extrabold text-gray-800 text-base mb-2">{{ $act->titulo }}</h3>
+                    <p class="text-gray-500 text-sm mb-4">{{ $act->descripcion }}</p>
+                    <a href="{{ $act->url ?? '#' }}" class="mt-auto bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white text-sm font-bold py-2 px-8 rounded-full transition">Ver más</a>
                 </div>
-
-                <div class="actividad-card bg-white rounded-xl shadow border border-gray-100 flex flex-col items-center p-6 text-center">
-                    <img src="/images/ICONOS%20DEPORTE/LEVANTAMIENTO-DE-PESAS.png" alt="Ponte Fitness" class="w-20 h-20 object-contain mb-4">
-                    <h3 class="font-extrabold text-gray-800 text-base mb-2">PONTE FITNESS</h3>
-                    <p class="text-gray-500 text-sm mb-4">Programa de activación física con clases gratuitas como baile deportivo, step y Pilates, dirigido a mujeres en Tecámac.</p>
-                    <a href="#" class="mt-auto bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white text-sm font-bold py-2 px-8 rounded-full transition">Ver más</a>
-                </div>
-
-                <div class="actividad-card bg-white rounded-xl shadow border border-gray-100 flex flex-col items-center p-6 text-center">
-                    <img src="/images/ICONOS%20DEPORTE/CICLISMO.png" alt="Actividades Recreativas" class="w-20 h-20 object-contain mb-4">
-                    <h3 class="font-extrabold text-gray-800 text-base mb-2">ACTIVIDADES RECREATIVAS</h3>
-                    <p class="text-gray-500 text-sm mb-4">El Imdeporte organiza rodadas, torneos y carreras recreativas para fomentar el desarrollo motor, la convivencia y los valores en niños y jóvenes.</p>
-                    <a href="#" class="mt-auto bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white text-sm font-bold py-2 px-8 rounded-full transition">Ver más</a>
-                </div>
+                @empty
+                    <div class="col-span-full text-center py-8 text-gray-400">
+                        <p>No hay actividades disponibles.</p>
+                    </div>
+                @endforelse
 
             </div>
             <button id="actividades-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 bg-[#7B2D8E] hover:bg-[#5c1a6e] shadow-lg rounded-full flex items-center justify-center text-white transition">
@@ -78,26 +76,24 @@
         <div class="relative">
             <div id="servicios-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
+                @forelse($servicios as $serv)
                 <div class="servicio-card bg-white rounded-xl shadow border border-gray-100 flex flex-col items-center p-6 text-center">
-                    <img src="/images/ICONOS%20DEPORTE/GIMNASIA-ARTISTICA.png" alt="Fisioterapia" class="w-20 h-20 object-contain mb-4">
-                    <h3 class="font-extrabold text-gray-800 text-base mb-2">FISIOTERAPIA</h3>
-                    <p class="text-gray-500 text-sm mb-4">A través del área de Fisioterapia, se ofrecen terapias de rehabilitación para el público en general y deportistas de Tecámac, a bajos costos con el objetivo de otorgar el servicio de manera accesible.</p>
-                    <a href="#" class="mt-auto bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white text-sm font-bold py-2 px-8 rounded-full transition">Ver más</a>
+                    @if($serv->imagen)
+                        <img src="{{ $serv->imagen }}" alt="{{ $serv->titulo }}" class="w-20 h-20 object-contain mb-4">
+                    @else
+                        <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-heartbeat text-gray-400 text-3xl"></i>
+                        </div>
+                    @endif
+                    <h3 class="font-extrabold text-gray-800 text-base mb-2">{{ $serv->titulo }}</h3>
+                    <p class="text-gray-500 text-sm mb-4">{{ $serv->descripcion }}</p>
+                    <a href="{{ $serv->url ?? '#' }}" class="mt-auto bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white text-sm font-bold py-2 px-8 rounded-full transition">Ver más</a>
                 </div>
-
-                <div class="servicio-card bg-white rounded-xl shadow border border-gray-100 flex flex-col items-center p-6 text-center">
-                    <img src="/images/ICONOS%20DEPORTE/GIMNASIA-RITMICA.png" alt="Orientaciones Físicas Nutricionales" class="w-20 h-20 object-contain mb-4">
-                    <h3 class="font-extrabold text-gray-800 text-base mb-2">ORIENTACIONES FÍSICAS NUTRICIONALES</h3>
-                    <p class="text-gray-500 text-sm mb-4">Se atiende de manera ambulatoria a parques públicos de Tecámac, donde acude personal capacitado del Imdeporte en materia de nutrición y cultura física.</p>
-                    <a href="#" class="mt-auto bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white text-sm font-bold py-2 px-8 rounded-full transition">Ver más</a>
-                </div>
-
-                <div class="servicio-card bg-white rounded-xl shadow border border-gray-100 flex flex-col items-center p-6 text-center">
-                    <img src="/images/ICONOS%20DEPORTE/NATACION.png" alt="Medicina Deportiva" class="w-20 h-20 object-contain mb-4">
-                    <h3 class="font-extrabold text-gray-800 text-base mb-2">MEDICINA DEPORTIVA</h3>
-                    <p class="text-gray-500 text-sm mb-4">Brindamos atención a los deportistas destacados del municipio de Tecámac; se centra en la prevención, diagnóstico y tratamiento de lesiones relacionadas con la actividad física y el deporte; brindar asesoramiento sobre entrenamientos.</p>
-                    <a href="#" class="mt-auto bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white text-sm font-bold py-2 px-8 rounded-full transition">Ver más</a>
-                </div>
+                @empty
+                    <div class="col-span-full text-center py-8 text-gray-400">
+                        <p>No hay servicios disponibles.</p>
+                    </div>
+                @endforelse
 
             </div>
             <button id="servicios-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 bg-[#7B2D8E] hover:bg-[#5c1a6e] shadow-lg rounded-full flex items-center justify-center text-white transition">

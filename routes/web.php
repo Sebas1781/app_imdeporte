@@ -21,8 +21,11 @@ use App\Http\Controllers\Admin\EventoController;
 use App\Http\Controllers\Admin\NoticiaController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RedSocialController;
+use App\Http\Controllers\Admin\CulturaFisicaItemController;
+use App\Http\Controllers\Admin\DocumentoController;
 
 // Public routes
+Route::get('/aviso-privacidad', fn() => view('aviso-privacidad'))->name('aviso-privacidad');
 Route::get('/servicios/remtys', fn() => view('servicios.remtys'))->name('servicios.remtys');
 Route::get('/transparencia/ley-contabilidad', fn() => view('transparencia.ley-contabilidad'))->name('transparencia.ley-contabilidad');
 
@@ -101,6 +104,18 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
 
     // Redes Sociales CRUD
     Route::resource('/redes-sociales', RedSocialController::class)->names('redes-sociales');
+
+    // Cultura Física Items CRUD
+    Route::get('/cultura-fisica', [CulturaFisicaItemController::class, 'index'])->name('cultura-fisica.index');
+    Route::get('/cultura-fisica/create', [CulturaFisicaItemController::class, 'create'])->name('cultura-fisica.create');
+    Route::post('/cultura-fisica', [CulturaFisicaItemController::class, 'store'])->name('cultura-fisica.store');
+    Route::get('/cultura-fisica/{culturaFisicaItem}/edit', [CulturaFisicaItemController::class, 'edit'])->name('cultura-fisica.edit');
+    Route::put('/cultura-fisica/{culturaFisicaItem}', [CulturaFisicaItemController::class, 'update'])->name('cultura-fisica.update');
+    Route::delete('/cultura-fisica/{culturaFisicaItem}', [CulturaFisicaItemController::class, 'destroy'])->name('cultura-fisica.destroy');
+
+    // Documentos (PDF uploads)
+    Route::get('/documentos', [DocumentoController::class, 'index'])->name('documentos.index');
+    Route::post('/documentos/aviso-privacidad', [DocumentoController::class, 'upload'])->name('documentos.upload');
 
     // Users CRUD
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
