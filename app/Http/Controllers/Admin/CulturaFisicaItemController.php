@@ -27,14 +27,14 @@ class CulturaFisicaItemController extends Controller
             'tipo'        => 'required|in:actividad,servicio',
             'titulo'      => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'imagen'      => 'nullable|image|max:2048',
+            'imagen'      => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
             'url'         => 'nullable|string|max:255',
             'orden'       => 'nullable|integer',
             'activo'      => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('imagen')) {
-            $data['imagen'] = '/storage/' . $request->file('imagen')->store('cultura-fisica', 'public');
+            $data['imagen'] = $this->storeImage($request->file('imagen'), 'cultura-fisica');
         }
 
         $data['activo'] = $request->has('activo');
@@ -57,14 +57,14 @@ class CulturaFisicaItemController extends Controller
             'tipo'        => 'required|in:actividad,servicio',
             'titulo'      => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'imagen'      => 'nullable|image|max:2048',
+            'imagen'      => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
             'url'         => 'nullable|string|max:255',
             'orden'       => 'nullable|integer',
             'activo'      => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('imagen')) {
-            $data['imagen'] = '/storage/' . $request->file('imagen')->store('cultura-fisica', 'public');
+            $data['imagen'] = $this->storeImage($request->file('imagen'), 'cultura-fisica');
         }
 
         $data['activo'] = $request->has('activo');

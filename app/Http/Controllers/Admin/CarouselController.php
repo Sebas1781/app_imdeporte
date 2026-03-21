@@ -23,14 +23,14 @@ class CarouselController extends Controller
     {
         $data = $request->validate([
             'titulo' => 'required|string|max:255',
-            'imagen' => 'nullable|image|max:2048',
+            'imagen' => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
             'url_externa' => 'nullable|url|max:255',
             'orden' => 'nullable|integer',
             'activo' => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('imagen')) {
-            $data['imagen'] = '/storage/' . $request->file('imagen')->store('carousel', 'public');
+            $data['imagen'] = $this->storeImage($request->file('imagen'), 'carousel');
         }
 
         $data['activo'] = $request->has('activo');
