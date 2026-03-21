@@ -87,6 +87,12 @@
                     <i class="fas fa-file-pdf w-5 text-center"></i>
                     Documentos
                 </a>
+                <a href="{{ route('admin.instituto.index') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.instituto.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-building w-5 text-center"></i>
+                    Instituto
+                </a>
                 <a href="{{ route('admin.users.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
                           {{ request()->routeIs('admin.users.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">

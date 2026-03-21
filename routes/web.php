@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RedSocialController;
 use App\Http\Controllers\Admin\CulturaFisicaItemController;
 use App\Http\Controllers\Admin\DocumentoController;
+use App\Http\Controllers\Admin\InstitutoController as AdminInstitutoController;
 
 // Public routes
 Route::get('/aviso-privacidad', fn() => view('aviso-privacidad'))->name('aviso-privacidad');
@@ -124,4 +125,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    // Instituto
+    Route::get('/instituto', [AdminInstitutoController::class, 'index'])->name('instituto.index');
+    Route::put('/instituto/config', [AdminInstitutoController::class, 'updateConfig'])->name('instituto.config');
+    Route::post('/instituto/organigrama', [AdminInstitutoController::class, 'storeItem'])->name('instituto.organigrama.store');
+    Route::put('/instituto/organigrama/{item}', [AdminInstitutoController::class, 'updateItem'])->name('instituto.organigrama.update');
+    Route::delete('/instituto/organigrama/{item}', [AdminInstitutoController::class, 'destroyItem'])->name('instituto.organigrama.destroy');
 });
