@@ -12,7 +12,7 @@
 </head>
 <body class="font-sans antialiased bg-white text-gray-800">
     {{-- ===== TOP INFO BAR (Logo + Info + Social) ===== --}}
-    <div class="bg-white border-b border-gray-200 hidden md:block">
+    <div class="bg-white border-b border-gray-200 hidden lg:block">
         <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
             {{-- Logo --}}
             <a href="/" class="shrink-0">
@@ -129,6 +129,15 @@
             <a href="{{ route('deporte.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
             <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
             <a href="{{ route('transparencia.ley-contabilidad') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Ley General de Contabilidad Gubernamental</a>
+            {{-- Redes sociales en menú móvil --}}
+            <div class="flex items-center gap-3 pt-3">
+                <a href="#" class="w-8 h-8 bg-[#1877F2] rounded-full flex items-center justify-center text-white">
+                    <i class="fab fa-facebook-f text-sm"></i>
+                </a>
+                <a href="#" class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white">
+                    <i class="fab fa-youtube text-sm"></i>
+                </a>
+            </div>
         </div>
     </nav>
 
