@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- Hero Banner --}}
-<section class="relative w-full overflow-hidden h-36 sm:h-52 md:h-64 lg:h-[340px]">
+<section class="relative w-full overflow-hidden" style="height: clamp(150px, 25vw, 340px);">
     <img src="/images/EVENTOS.jpg" alt="Eventos" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
