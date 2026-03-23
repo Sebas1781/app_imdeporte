@@ -9,11 +9,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-        <link rel="stylesheet" href="{{ asset('build/assets/app-CY5vtjM4.css') }}">
-    @endif
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased bg-gray-100 text-gray-800">
     <div class="min-h-screen flex">
@@ -78,6 +74,24 @@
                           {{ request()->routeIs('admin.redes-sociales.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
                     <i class="fas fa-share-alt w-5 text-center"></i>
                     Redes Sociales
+                </a>
+                <a href="{{ route('admin.cultura-fisica.index') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.cultura-fisica.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-running w-5 text-center"></i>
+                    Cultura Física
+                </a>
+                <a href="{{ route('admin.documentos.index') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.documentos.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-file-pdf w-5 text-center"></i>
+                    Documentos
+                </a>
+                <a href="{{ route('admin.instituto.index') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.instituto.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-building w-5 text-center"></i>
+                    Instituto
                 </a>
                 <a href="{{ route('admin.users.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition

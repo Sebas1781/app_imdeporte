@@ -18,9 +18,7 @@
 <section class="py-12 bg-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
         <p class="text-gray-600 text-base leading-relaxed">
-            Como parte de la política social del Gobierno Municipal de Tecámac, el Instituto Municipal de Cultura Física y Deporte (IMDEPORTE) tiene como
-            misión fomentar la cultura física y el deporte a través de programas y acciones coordinadas con organismos públicos y privados para
-            mejorar la calidad de vida de los tecamaquenses.
+            {{ $config->descripcion ?? 'Como parte de la política social del Gobierno Municipal de Tecámac, el Instituto Municipal de Cultura Física y Deporte (IMDEPORTE) tiene como misión fomentar la cultura física y el deporte a través de programas y acciones coordinadas con organismos públicos y privados para mejorar la calidad de vida de los tecamaquenses.' }}
         </p>
     </div>
 </section>
@@ -29,10 +27,10 @@
 <section class="py-12 bg-gray-50">
     <div class="max-w-4xl mx-auto px-6 flex flex-col items-center">
         <div class="relative">
-            <img src="/images/mtro%20manuel.png" alt="Titular" class="w-64 h-64 object-cover rounded-2xl shadow-lg">
+            <img src="{{ $config->titular_imagen ?? '/images/mtro%20manuel.png' }}" alt="Titular" class="w-64 h-64 object-cover rounded-2xl shadow-lg">
             <div class="absolute bottom-0 left-0 right-0 bg-[#7B2D8E]/90 rounded-b-2xl p-4">
-                <h3 class="text-white font-bold text-lg">Titular: Mtro. Manuel Fuentes Figueroa</h3>
-                <p class="text-white/80 text-sm">Director General del Imdeporte</p>
+                <h3 class="text-white font-bold text-lg">Titular: {{ $config->titular_nombre ?? 'Mtro. Manuel Fuentes Figueroa' }}</h3>
+                <p class="text-white/80 text-sm">{{ $config->titular_cargo ?? 'Director General del Imdeporte' }}</p>
             </div>
         </div>
     </div>
@@ -44,32 +42,24 @@
         <h2 class="text-2xl font-extrabold text-center text-gray-800 mb-10">Estructura orgánica</h2>
 
         <div class="flex flex-col items-center gap-3">
-            {{-- Nivel 1 --}}
-            <div class="w-full max-w-md bg-[#7B2D8E] text-white text-center py-3 px-6 rounded-full font-semibold shadow">
-                Consejo Directivo
-            </div>
-            <div class="w-full max-w-md bg-[#7B2D8E] text-white text-center py-3 px-6 rounded-full font-semibold shadow">
-                Órgano Interno de Control
-            </div>
-            <div class="w-full max-w-md bg-[#7B2D8E] text-white text-center py-3 px-6 rounded-full font-semibold shadow">
-                Dirección General
-            </div>
-
-            {{-- Nivel 2 --}}
-            <div class="w-full max-w-md bg-[#A855A0] text-white text-center py-3 px-6 rounded-full font-semibold shadow mt-2">
-                Coordinación Administrativa
-            </div>
-            <div class="w-full max-w-md bg-[#A855A0] text-white text-center py-3 px-6 rounded-full font-semibold shadow">
-                Coordinación de Cultura Física y del Deporte
-            </div>
-
-            {{-- Nivel 3 --}}
-            <div class="w-full max-w-md bg-[#C084CF] text-white text-center py-3 px-6 rounded-full font-semibold shadow mt-2">
-                Departamento de Cultura Física
-            </div>
-            <div class="w-full max-w-md bg-[#C084CF] text-white text-center py-3 px-6 rounded-full font-semibold shadow">
-                Departamento de Promoción y Fomento al Deporte
-            </div>
+            @forelse($items as $item)
+                @php
+                    $colors = [1 => '#7B2D8E', 2 => '#A855A0', 3 => '#C084CF'];
+                    $bg = $colors[$item->nivel] ?? '#7B2D8E';
+                @endphp
+                <div class="w-full max-w-md text-white text-center py-3 px-6 rounded-full font-semibold shadow" style="background-color: {{ $bg }}">
+                    {{ $item->nombre }}
+                </div>
+            @empty
+                {{-- Fallback estático si no hay datos --}}
+                <div class="w-full max-w-md bg-[#7B2D8E] text-white text-center py-3 px-6 rounded-full font-semibold shadow">Consejo Directivo</div>
+                <div class="w-full max-w-md bg-[#7B2D8E] text-white text-center py-3 px-6 rounded-full font-semibold shadow">Órgano Interno de Control</div>
+                <div class="w-full max-w-md bg-[#7B2D8E] text-white text-center py-3 px-6 rounded-full font-semibold shadow">Dirección General</div>
+                <div class="w-full max-w-md bg-[#A855A0] text-white text-center py-3 px-6 rounded-full font-semibold shadow mt-2">Coordinación Administrativa</div>
+                <div class="w-full max-w-md bg-[#A855A0] text-white text-center py-3 px-6 rounded-full font-semibold shadow">Coordinación de Cultura Física y del Deporte</div>
+                <div class="w-full max-w-md bg-[#C084CF] text-white text-center py-3 px-6 rounded-full font-semibold shadow mt-2">Departamento de Cultura Física</div>
+                <div class="w-full max-w-md bg-[#C084CF] text-white text-center py-3 px-6 rounded-full font-semibold shadow">Departamento de Promoción y Fomento al Deporte</div>
+            @endforelse
         </div>
     </div>
 </section>

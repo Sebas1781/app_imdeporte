@@ -5,7 +5,7 @@
 @section('content')
 
 {{-- Hero Banner --}}
-<section class="relative w-full overflow-hidden" style="height: 340px;">
+<section class="relative w-full overflow-hidden" style="height: clamp(150px, 25vw, 340px);">
     <img src="/images/PROGRAMAS.jpg" alt="Programas" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
@@ -31,11 +31,11 @@
 <section class="py-10 bg-white">
     <div class="max-w-6xl mx-auto px-4">
         <div class="relative">
-            <div id="programas-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div id="programas-container" class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 @forelse($programas as $programa)
                     <a href="{{ route('programas.show', $programa) }}" {{ $programa->url_externa ? 'target=_blank' : '' }}
                        class="bg-white rounded-xl shadow-lg overflow-hidden group border border-gray-100 programa-card hover:shadow-xl transition" style="display: none;">
-                        <div class="h-48 overflow-hidden">
+                        <div class="h-28 sm:h-36 md:h-48 overflow-hidden">
                             @if($programa->imagen)
                                 <img src="{{ $programa->imagen }}" alt="{{ $programa->titulo }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
                             @else
@@ -44,9 +44,9 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="p-5">
-                            <h4 class="text-gray-800 font-bold mt-1 text-sm leading-snug">{{ $programa->titulo }}</h4>
-                            <p class="text-gray-500 text-xs mt-2">{{ Str::limit($programa->descripcion, 120) }}</p>
+                        <div class="p-2 sm:p-4 md:p-5">
+                            <h4 class="text-gray-800 font-bold mt-1 text-xs sm:text-sm leading-snug">{{ $programa->titulo }}</h4>
+                            <p class="hidden sm:block text-gray-500 text-xs mt-2">{{ Str::limit($programa->descripcion, 120) }}</p>
                         </div>
                     </a>
                 @empty
@@ -57,11 +57,11 @@
                 @endforelse
             </div>
 
-            <button id="programas-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-10 h-10 bg-[#7B2D8E] hover:bg-[#5c1a6e] shadow-lg rounded-full items-center justify-center text-white transition hidden md:flex">
-                <i class="fas fa-chevron-left"></i>
+            <button id="programas-prev" class="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 md:-translate-x-4 w-8 h-8 md:w-10 md:h-10 bg-[#7B2D8E] hover:bg-[#5c1a6e] shadow-lg rounded-full flex items-center justify-center text-white transition z-10">
+                <i class="fas fa-chevron-left text-sm md:text-base"></i>
             </button>
-            <button id="programas-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-10 h-10 bg-[#7B2D8E] hover:bg-[#5c1a6e] shadow-lg rounded-full items-center justify-center text-white transition hidden md:flex">
-                <i class="fas fa-chevron-right"></i>
+            <button id="programas-next" class="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 md:translate-x-4 w-8 h-8 md:w-10 md:h-10 bg-[#7B2D8E] hover:bg-[#5c1a6e] shadow-lg rounded-full flex items-center justify-center text-white transition z-10">
+                <i class="fas fa-chevron-right text-sm md:text-base"></i>
             </button>
         </div>
 
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!container) return;
 
         const cards = container.querySelectorAll('.' + cardClass);
-        const perPage = 3;
+        const perPage = window.innerWidth < 768 ? 2 : 3;
         let page = 0;
         const totalPages = Math.ceil(cards.length / perPage);
 
@@ -107,6 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     dot.className = 'w-3 h-3 rounded-full transition-all ' + (i === page ? 'bg-[#7B2D8E] scale-110' : 'bg-gray-300');
                 });
             }
+            if (prevBtnEl) prevBtnEl.style.display = totalPages > 1 ? 'flex' : 'none';
+            if (nextBtnEl) nextBtnEl.style.display = totalPages > 1 ? 'flex' : 'none';
         }
 
         if (dotsEl && totalPages > 1) {

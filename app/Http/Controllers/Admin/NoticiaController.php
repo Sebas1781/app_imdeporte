@@ -24,7 +24,7 @@ class NoticiaController extends Controller
         $data = $request->validate([
             'titulo' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'imagen' => 'nullable|image|max:2048',
+            'imagen' => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
             'url_externa' => 'nullable|url|max:255',
             'fecha' => 'required|date',
             'orden' => 'nullable|integer',
@@ -32,7 +32,7 @@ class NoticiaController extends Controller
         ]);
 
         if ($request->hasFile('imagen')) {
-            $data['imagen'] = '/storage/' . $request->file('imagen')->store('noticias', 'public');
+            $data['imagen'] = $this->storeImage($request->file('imagen'), 'noticias');
         }
 
         $data['activo'] = $request->has('activo');
@@ -53,7 +53,7 @@ class NoticiaController extends Controller
         $data = $request->validate([
             'titulo' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'imagen' => 'nullable|image|max:2048',
+            'imagen' => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
             'url_externa' => 'nullable|url|max:255',
             'fecha' => 'required|date',
             'orden' => 'nullable|integer',
@@ -61,7 +61,7 @@ class NoticiaController extends Controller
         ]);
 
         if ($request->hasFile('imagen')) {
-            $data['imagen'] = '/storage/' . $request->file('imagen')->store('noticias', 'public');
+            $data['imagen'] = $this->storeImage($request->file('imagen'), 'noticias');
         }
 
         $data['activo'] = $request->has('activo');

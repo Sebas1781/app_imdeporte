@@ -8,15 +8,11 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-        <link rel="stylesheet" href="{{ asset('build/assets/app-CY5vtjM4.css') }}">
-    @endif
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans antialiased bg-white text-gray-800">
     {{-- ===== TOP INFO BAR (Logo + Info + Social) ===== --}}
-    <div class="bg-white border-b border-gray-200 hidden md:block">
+    <div class="bg-white border-b border-gray-200 hidden lg:block">
         <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
             {{-- Logo --}}
             <a href="/" class="shrink-0">
@@ -133,6 +129,15 @@
             <a href="{{ route('deporte.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
             <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
             <a href="{{ route('transparencia.ley-contabilidad') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Ley General de Contabilidad Gubernamental</a>
+            {{-- Redes sociales en menú móvil --}}
+            <div class="flex items-center gap-3 pt-3">
+                <a href="#" class="w-8 h-8 bg-[#1877F2] rounded-full flex items-center justify-center text-white">
+                    <i class="fab fa-facebook-f text-sm"></i>
+                </a>
+                <a href="#" class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white">
+                    <i class="fab fa-youtube text-sm"></i>
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -165,7 +170,7 @@
                 <div>
                     <h5 class="font-bold text-sm mb-3">IMDEPORTE</h5>
                     <p class="text-xs text-gray-300 mb-1">Algunos derechos reservados</p>
-                    <p class="text-xs text-gray-300 mt-2"><a href="#" class="hover:text-white transition">Aviso de privacidad</a></p>
+                    <p class="text-xs text-gray-300 mt-2"><a href="{{ route('aviso-privacidad') }}" class="hover:text-white transition">Aviso de privacidad</a></p>
                 </div>
                 {{-- Col 4: Contacto y redes --}}
                 <div>

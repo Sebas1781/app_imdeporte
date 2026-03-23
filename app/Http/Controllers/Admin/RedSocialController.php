@@ -23,18 +23,18 @@ class RedSocialController extends Controller
     {
         $data = $request->validate([
             'nombre'  => 'required|string|max:255',
-            'logo'    => 'nullable|image|max:2048',
-            'imagen'  => 'nullable|image|max:2048',
+            'logo'    => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
+            'imagen'  => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
             'url'     => 'nullable|url|max:255',
             'orden'   => 'nullable|integer',
             'activo'  => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('logo')) {
-            $data['logo'] = '/storage/' . $request->file('logo')->store('redes-sociales/logos', 'public');
+            $data['logo'] = $this->storeImage($request->file('logo'), 'redes-sociales/logos');
         }
         if ($request->hasFile('imagen')) {
-            $data['imagen'] = '/storage/' . $request->file('imagen')->store('redes-sociales/imagenes', 'public');
+            $data['imagen'] = $this->storeImage($request->file('imagen'), 'redes-sociales/imagenes');
         }
 
         $data['activo'] = $request->has('activo');
@@ -54,20 +54,20 @@ class RedSocialController extends Controller
     {
         $data = $request->validate([
             'nombre'  => 'required|string|max:255',
-            'logo'    => 'nullable|image|max:2048',
-            'imagen'  => 'nullable|image|max:2048',
+            'logo'    => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
+            'imagen'  => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
             'url'     => 'nullable|url|max:255',
             'orden'   => 'nullable|integer',
             'activo'  => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('logo')) {
-            $data['logo'] = '/storage/' . $request->file('logo')->store('redes-sociales/logos', 'public');
+            $data['logo'] = $this->storeImage($request->file('logo'), 'redes-sociales/logos');
         } else {
             unset($data['logo']);
         }
         if ($request->hasFile('imagen')) {
-            $data['imagen'] = '/storage/' . $request->file('imagen')->store('redes-sociales/imagenes', 'public');
+            $data['imagen'] = $this->storeImage($request->file('imagen'), 'redes-sociales/imagenes');
         } else {
             unset($data['imagen']);
         }
