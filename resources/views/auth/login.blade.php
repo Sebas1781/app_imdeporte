@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - IMDEPORTE Admin</title>
-    <link rel="icon" type="image/png" href="/images/IMDEPORTELogo.png">
+    <link rel="icon" type="image/png" href="/images/logoImdeporte.png">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -19,7 +19,7 @@
         <div class="bg-white rounded-2xl shadow-xl p-8">
             {{-- Logo --}}
             <div class="text-center mb-8">
-                <img src="/images/IMDEPORTELogo.png" alt="IMDEPORTE Tecámac" class="h-16 w-auto mx-auto mb-4">
+                <img src="/images/logoImdeporte.png" alt="IMDEPORTE Tecámac" class="h-16 w-auto mx-auto mb-4">
                 <h1 class="text-xl font-bold text-gray-800">Panel de Administración</h1>
                 <p class="text-sm text-gray-500 mt-1">Inicia sesión para continuar</p>
             </div>
