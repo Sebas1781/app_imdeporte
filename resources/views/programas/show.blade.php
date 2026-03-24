@@ -11,7 +11,7 @@
         </a>
 
         @if($programa->imagen)
-            <img src="{{ $programa->imagen }}" alt="{{ $programa->titulo }}" class="w-full h-64 object-cover rounded-xl mb-6">
+            <img src="{{ $programa->imagen }}" alt="{{ $programa->titulo }}" class="w-full rounded-xl mb-6">
         @endif
 
         <h1 class="text-3xl font-extrabold text-gray-800 mb-4">{{ $programa->titulo }}</h1>
