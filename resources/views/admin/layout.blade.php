@@ -14,7 +14,7 @@
 <body class="font-sans antialiased bg-gray-100 text-gray-800">
     <div class="min-h-screen flex">
         {{-- Sidebar --}}
-        <aside id="sidebar" class="w-64 bg-[#3D1252] text-white flex-shrink-0 fixed inset-y-0 left-0 z-30 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-200 ease-in-out">
+        <aside id="sidebar" class="w-64 bg-[#3D1252] text-white shrink-0 fixed inset-y-0 left-0 z-30 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-200 ease-in-out">
             <div class="p-6 border-b border-white/10">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
                     <img src="/images/logoImdeporte.png" alt="IMDEPORTE" class="h-10 w-auto bg-white rounded px-2 py-1">
@@ -86,6 +86,12 @@
                           {{ request()->routeIs('admin.documentos.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
                     <i class="fas fa-file-pdf w-5 text-center"></i>
                     Documentos
+                </a>
+                <a href="{{ route('admin.remtys.index') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.remtys.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-folder-open w-5 text-center"></i>
+                    REMTYS
                 </a>
                 <a href="{{ route('admin.instituto.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
@@ -217,7 +223,7 @@
 
     {{-- ========== MODAL: Success / Error ========== --}}
     @if(session('success') || session('error'))
-    <div id="flash-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300">
+    <div id="flash-modal" class="fixed inset-0 z-100 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300">
         <div id="flash-modal-box" class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 text-center transform scale-90 transition-transform duration-300">
             @if(session('success'))
                 <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5 modal-icon-success">
@@ -242,7 +248,7 @@
     @endif
 
     {{-- ========== MODAL: Confirm Delete ========== --}}
-    <div id="confirm-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300">
+    <div id="confirm-modal" class="fixed inset-0 z-100 hidden items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300">
         <div id="confirm-modal-box" class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 text-center transform scale-90 transition-transform duration-300">
             <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-5 modal-icon-delete">
                 <i class="fas fa-trash-alt text-red-500 text-4xl"></i>

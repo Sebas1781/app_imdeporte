@@ -76,6 +76,18 @@
         <p class="text-sm text-gray-500">Noticias ({{ $stats['noticias_activas'] }} activas)</p>
     </a>
 
+    {{-- Card: REMTYS --}}
+    <a href="{{ route('admin.remtys.index') }}" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition group">
+        <div class="flex items-center justify-between mb-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-folder-open text-blue-600 text-xl"></i>
+            </div>
+            <i class="fas fa-arrow-right text-gray-300 group-hover:text-[#7B2D8E] transition"></i>
+        </div>
+        <p class="text-2xl font-bold text-gray-800">{{ $stats['remtys_categorias'] }}</p>
+        <p class="text-sm text-gray-500">Categorías REMTYS</p>
+    </a>
+
     {{-- Card: Users --}}
     <a href="{{ route('admin.users.index') }}" class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition group">
         <div class="flex items-center justify-between mb-4">

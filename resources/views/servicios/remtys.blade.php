@@ -6,7 +6,7 @@
 
 {{-- Banner --}}
 <section class="relative w-full overflow-hidden" style="height: 320px;">
-    <div class="absolute inset-0 bg-gradient-to-br from-[#7B2D8E] via-[#9B3DAE] to-[#5c1a6e]"></div>
+    <div class="absolute inset-0 bg-linear-to-br from-[#7B2D8E] via-[#9B3DAE] to-[#5c1a6e]"></div>
     <div class="absolute inset-0 opacity-10" style="background-image: url('/images/fondo1.jpg'); background-size: cover; background-position: center;"></div>
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <h1 class="text-white text-5xl md:text-6xl font-extrabold tracking-wider drop-shadow-lg">REMTYS</h1>
@@ -26,68 +26,18 @@
     <div class="max-w-5xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {{-- Card 1 --}}
-            <a href="#" class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"
-               style="background: linear-gradient(135deg, #8B5CF6, #7B2D8E);">
-                <div class="absolute top-4 left-4 opacity-20 text-white text-6xl">
-                    <i class="fas fa-check-double"></i>
-                </div>
-                <div class="absolute top-4 right-4 opacity-20 text-white text-6xl">
-                    <i class="fas fa-check-double"></i>
-                </div>
-                <div class="relative z-10 p-7 pb-10">
-                    <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-balance-scale text-white text-lg"></i>
-                    </div>
-                    <h3 class="text-white font-bold text-lg leading-snug">Consejería Jurídica</h3>
-                </div>
-                <div class="bg-white/10 px-7 py-3 flex items-center justify-between">
-                    <span class="text-white/80 text-sm">Ver trámites</span>
-                    <i class="fas fa-arrow-right text-white/80 text-sm group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-
-            {{-- Card 2 --}}
-            <a href="#" class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"
-               style="background: linear-gradient(135deg, #ef4444, #dc2626);">
-                <div class="absolute top-4 left-4 opacity-20 text-white text-6xl">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <div class="absolute top-4 right-4 opacity-20 text-white text-6xl">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <div class="relative z-10 p-7 pb-10">
-                    <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-coins text-white text-lg"></i>
-                    </div>
-                    <h3 class="text-white font-bold text-lg leading-snug">Tesorería Municipal</h3>
-                </div>
-                <div class="bg-white/10 px-7 py-3 flex items-center justify-between">
-                    <span class="text-white/80 text-sm">Ver trámites</span>
-                    <i class="fas fa-arrow-right text-white/80 text-sm group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-
-            {{-- Card 3 --}}
-            <a href="#" class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"
-               style="background: linear-gradient(135deg, #3B82F6, #1d4ed8);">
-                <div class="absolute top-4 left-4 opacity-20 text-white text-6xl">
-                    <i class="fas fa-check"></i>
-                </div>
-                <div class="absolute top-4 right-4 opacity-20 text-white text-6xl">
-                    <i class="fas fa-check"></i>
-                </div>
-                <div class="relative z-10 p-7 pb-10">
-                    <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-shield-alt text-white text-lg"></i>
-                    </div>
-                    <h3 class="text-white font-bold text-lg leading-snug">Órgano Interno de Control Municipal</h3>
-                </div>
-                <div class="bg-white/10 px-7 py-3 flex items-center justify-between">
-                    <span class="text-white/80 text-sm">Ver trámites</span>
-                    <i class="fas fa-arrow-right text-white/80 text-sm group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
+            @forelse($categorias as $categoria)
+                <x-remtys-card-public 
+                    :titulo="$categoria->nombre"
+                    :icono="$categoria->icono"
+                    :color="$categoria->color"
+                    :enlace="route('servicios.remtys.show', $categoria->slug)" />
+            @empty
+            <div class="col-span-3 text-center py-16 text-gray-400">
+                <i class="fas fa-folder-open text-4xl mb-3 block text-gray-200"></i>
+                <p>No hay categorías disponibles aún.</p>
+            </div>
+            @endforelse
 
         </div>
     </div>

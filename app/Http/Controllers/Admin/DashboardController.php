@@ -10,6 +10,7 @@ use App\Models\Programa;
 use App\Models\Evento;
 use App\Models\Noticia;
 use App\Models\User;
+use App\Models\RemtysCategoria;
 
 class DashboardController extends Controller
 {
@@ -28,6 +29,7 @@ class DashboardController extends Controller
             'noticias_activas' => Noticia::where('activo', true)->count(),
             'users' => User::count(),
             'boletines_activos' => Boletin::where('activo', true)->count(),
+            'remtys_categorias' => RemtysCategoria::count(),
         ];
 
         return view('admin.dashboard', compact('stats'));

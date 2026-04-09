@@ -11,6 +11,7 @@ use App\Http\Controllers\NoticiaPublicController;
 use App\Http\Controllers\CulturaFisicaController;
 use App\Http\Controllers\DeporteController;
 use App\Http\Controllers\TransparenciaController;
+use App\Http\Controllers\RemtysPublicController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CarouselController;
@@ -24,10 +25,13 @@ use App\Http\Controllers\Admin\RedSocialController;
 use App\Http\Controllers\Admin\CulturaFisicaItemController;
 use App\Http\Controllers\Admin\DocumentoController;
 use App\Http\Controllers\Admin\InstitutoController as AdminInstitutoController;
+use App\Http\Controllers\Admin\RemtysCategoriaController;
+use App\Http\Controllers\Admin\RemtysDocumentoController;
 
 // Public routes
 Route::get('/aviso-privacidad', fn() => view('aviso-privacidad'))->name('aviso-privacidad');
-Route::get('/servicios/remtys', fn() => view('servicios.remtys'))->name('servicios.remtys');
+Route::get('/servicios/remtys', [RemtysPublicController::class, 'index'])->name('servicios.remtys');
+Route::get('/servicios/remtys/{slug}', [RemtysPublicController::class, 'show'])->name('servicios.remtys.show');
 Route::get('/transparencia/ley-contabilidad', fn() => view('transparencia.ley-contabilidad'))->name('transparencia.ley-contabilidad');
 
 Route::get('/', [HomeController::class, 'index']);
@@ -125,6 +129,20 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    // REMTYS - Categorías
+    Route::get('/remtys', [RemtysCategoriaController::class, 'index'])->name('remtys.index');
+    Route::get('/remtys/create', [RemtysCategoriaController::class, 'create'])->name('remtys.create');
+    Route::post('/remtys', [RemtysCategoriaController::class, 'store'])->name('remtys.store');
+    Route::get('/remtys/{categoria}/edit', [RemtysCategoriaController::class, 'edit'])->name('remtys.edit');
+    Route::put('/remtys/{categoria}', [RemtysCategoriaController::class, 'update'])->name('remtys.update');
+    Route::delete('/remtys/{categoria}', [RemtysCategoriaController::class, 'destroy'])->name('remtys.destroy');
+
+    // REMTYS - Documentos
+    Route::get('/remtys/{categoria}/documentos', [RemtysDocumentoController::class, 'index'])->name('remtys.documentos.index');
+    Route::get('/remtys/{categoria}/documentos/create', [RemtysDocumentoController::class, 'create'])->name('remtys.documentos.create');
+    Route::post('/remtys/{categoria}/documentos', [RemtysDocumentoController::class, 'store'])->name('remtys.documentos.store');
+    Route::delete('/remtys/{categoria}/documentos/{documento}', [RemtysDocumentoController::class, 'destroy'])->name('remtys.documentos.destroy');
 
     // Instituto
     Route::get('/instituto', [AdminInstitutoController::class, 'index'])->name('instituto.index');

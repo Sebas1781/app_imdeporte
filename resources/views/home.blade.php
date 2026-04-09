@@ -1,12 +1,16 @@
 @extends('layouts.app')
 
+@php 
+use Illuminate\Support\Str;
+@endphp
+
 @section('content')
 
 {{-- ===================================================================== --}}
 {{-- 1. HERO BANNER CAROUSEL                                                --}}
 {{-- ===================================================================== --}}
 <section class="relative overflow-hidden" id="hero-carousel">
-    <div class="relative w-full aspect-[4/3] sm:aspect-[16/9] md:aspect-[16/6]">
+    <div class="relative w-full aspect-4/3 sm:aspect-video md:aspect-16/6">
         <div id="carousel-slides" class="relative w-full h-full">
             @forelse($carouselItems as $index => $slide)
                 @php $slideUrl = $slide->url_externa && trim($slide->url_externa) !== '' ? $slide->url_externa : $slide->imagen; @endphp
@@ -45,7 +49,7 @@
 {{-- ===================================================================== --}}
 <section class="relative w-full overflow-hidden" style="height: clamp(180px, 30vw, 420px);">
     <img src="/images/convocatorias.jpg" alt="Convocatorias" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-gradient-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
+    <div class="absolute inset-0 bg-linear-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
         <h2 class="text-white text-4xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">CONVOCATORIAS</h2>
         <p class="text-white/90 text-lg md:text-xl mt-3 drop-shadow">Conoce los últimos eventos de nuestro municipio.</p>
@@ -69,7 +73,7 @@
                                 </div>
                             @endif
                             {{-- Overlay con fecha al hacer hover --}}
-                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-4 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent px-4 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                                 <span class="text-xs font-bold text-white/80">{{ $convocatoria->fecha->translatedFormat('d F, Y') }}</span>
                                 <p class="text-white text-xs font-semibold leading-snug mt-0.5">{{ Str::limit($convocatoria->titulo, 60) }}</p>
                             </div>
@@ -107,7 +111,7 @@
 {{-- ===================================================================== --}}
 <section class="relative w-full overflow-hidden" style="height: clamp(180px, 30vw, 420px);">
     <img src="/images/noticias_interes.jpg" alt="Noticias de Interés" class="absolute inset-0 w-full h-full object-cover">
-    <div class="absolute inset-0 bg-gradient-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
+    <div class="absolute inset-0 bg-linear-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
         <h2 class="text-white text-4xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">NOTICIAS DE INTERÉS</h2>
         <p class="text-white/90 text-lg md:text-xl mt-3 drop-shadow">Entérate de las últimas noticias del municipio.</p>
@@ -192,7 +196,7 @@
                     </div>
                     <div class="p-3 flex items-center gap-2">
                         @if($red->logo)
-                            <img src="{{ $red->logo }}" alt="Logo {{ $red->nombre }}" class="h-8 w-auto max-w-[80px] object-contain">
+                            <img src="{{ $red->logo }}" alt="Logo {{ $red->nombre }}" class="h-8 w-auto max-w-20 object-contain">
                         @else
                             <span class="text-xs font-semibold text-gray-700">{{ $red->nombre }}</span>
                         @endif
