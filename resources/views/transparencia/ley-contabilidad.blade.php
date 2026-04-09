@@ -21,7 +21,7 @@
 </section>
 
 {{-- Cards de sistemas --}}
-<section class="py-14 bg-white">
+<section class="py-14 bg-white hidden">
     <div class="max-w-5xl mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
 
