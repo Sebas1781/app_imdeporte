@@ -32,6 +32,11 @@
                     <i class="fas fa-tachometer-alt w-5 text-center"></i>
                     Dashboard
                 </a>
+
+                <div class="px-4 pt-3 pb-1">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-white/30">Contenido</p>
+                </div>
+
                 <a href="{{ route('admin.carousel.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
                           {{ request()->routeIs('admin.carousel.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
@@ -92,6 +97,29 @@
                           {{ request()->routeIs('admin.remtys.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
                     <i class="fas fa-folder-open w-5 text-center"></i>
                     REMTYS
+                </a>
+
+                {{-- Separador Transparencia --}}
+                <div class="px-4 pt-3 pb-1">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-white/30">Transparencia</p>
+                </div>
+                <a href="{{ route('admin.transparencia.index', 'sevac') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.transparencia.*') && request()->route('tipo') === 'sevac' ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-table-list w-5 text-center"></i>
+                    SEVAC
+                </a>
+                <a href="{{ route('admin.transparencia.index', 'conac') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.transparencia.*') && request()->route('tipo') === 'conac' ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-landmark w-5 text-center"></i>
+                    CONAC
+                </a>
+                <a href="{{ route('admin.transparencia.index', 'presupuesto') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.transparencia.*') && request()->route('tipo') === 'presupuesto' ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-coins w-5 text-center"></i>
+                    Presupuesto
                 </a>
                 <a href="{{ route('admin.instituto.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition

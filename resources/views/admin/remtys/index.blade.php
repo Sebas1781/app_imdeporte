@@ -5,7 +5,7 @@
 
 <div class="flex items-center justify-between mb-6 overflow-visible">
     <div class="flex items-center gap-2">
-        <span class="text-2xl">🏷️</span>
+        <i class="fas fa-tags text-[#7B2D8E] text-xl"></i>
         <h2 class="text-xl font-bold text-gray-800">Categorías REMTYS</h2>
     </div>
     <a href="{{ route('admin.remtys.create') }}"

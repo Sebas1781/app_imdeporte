@@ -21,137 +21,192 @@
 </section>
 
 {{-- Cards de sistemas --}}
-<section class="py-14 bg-white hidden">
-    <div class="max-w-5xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
 
-            {{-- SEVAC --}}
-            <a href="https://www.gob.mx/imta/acciones-y-programas/sistema-de-evaluacion-de-armonizacion-contable-sevac-250543" target="_blank" class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"
-               style="background: linear-gradient(135deg, #10b981, #059669);">
-                <div class="absolute inset-0 opacity-10 flex items-center justify-center text-white text-8xl font-black">
-                    <span>SEVAC</span>
-                </div>
-                <div class="relative z-10 p-6 pb-10">
-                    <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-file-alt text-white text-lg"></i>
-                    </div>
-                    <h3 class="text-white font-bold text-base leading-snug">SEVAC</h3>
-                    <p class="text-white/75 text-xs mt-1 leading-snug">Sistema de Evaluación de Armonización Contable</p>
-                </div>
-                <div class="bg-white/15 px-6 py-3 flex items-center justify-between">
-                    <span class="text-white/80 text-sm">Acceder</span>
-                    <i class="fas fa-arrow-right text-white/80 text-sm group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-
-            {{-- CONAC --}}
-            <a href="https://www.conac.gob.mx/" target="_blank" class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"
-               style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
-                <div class="absolute inset-0 opacity-10 flex items-center justify-center text-white text-8xl font-black">
-                    <span>CONAC</span>
-                </div>
-                <div class="relative z-10 p-6 pb-10">
-                    <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-check-circle text-white text-lg"></i>
-                    </div>
-                    <h3 class="text-white font-bold text-base leading-snug">CONAC</h3>
-                    <p class="text-white/75 text-xs mt-1 leading-snug">Consejo Nacional de Armonización Contable</p>
-                </div>
-                <div class="bg-white/15 px-6 py-3 flex items-center justify-between">
-                    <span class="text-white/80 text-sm">Acceder</span>
-                    <i class="fas fa-arrow-right text-white/80 text-sm group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-
-            {{-- IPOMEX --}}
-            <a href="https://ipomex.org.mx/ipomex/#/" target="_blank" class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"
-               style="background: linear-gradient(135deg, #06b6d4, #0891b2);">
-                <div class="absolute inset-0 opacity-10 flex items-center justify-center text-white text-7xl font-black">
-                    <span>IPOMEX</span>
-                </div>
-                <div class="relative z-10 p-6 pb-10">
-                    <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-file-invoice text-white text-lg"></i>
-                    </div>
-                    <h3 class="text-white font-bold text-base leading-snug">IPOMEX</h3>
-                    <p class="text-white/75 text-xs mt-1 leading-snug">Información Pública de Oficio Mexiquense</p>
-                </div>
-                <div class="bg-white/15 px-6 py-3 flex items-center justify-between">
-                    <span class="text-white/80 text-sm">Acceder</span>
-                    <i class="fas fa-arrow-right text-white/80 text-sm group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-
-            {{-- INFOEM --}}
-            <a href="https://www.infoem.org.mx/es/content/informacion-publica" target="_blank" class="group relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 block"
-               style="background: linear-gradient(135deg, #f97316, #ea580c);">
-                <div class="absolute inset-0 opacity-10 flex items-center justify-center text-white text-7xl font-black">
-                    <span>INFOEM</span>
-                </div>
-                <div class="relative z-10 p-6 pb-10">
-                    <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-info-circle text-white text-lg"></i>
-                    </div>
-                    <h3 class="text-white font-bold text-base leading-snug">INFOEM</h3>
-                    <p class="text-white/75 text-xs mt-1 leading-snug">Instituto de Transparencia del Estado de México</p>
-                </div>
-                <div class="bg-white/15 px-6 py-3 flex items-center justify-between">
-                    <span class="text-white/80 text-sm">Acceder</span>
-                    <i class="fas fa-arrow-right text-white/80 text-sm group-hover:translate-x-1 transition-transform"></i>
-                </div>
-            </a>
-
+{{-- ═══════════════════════════════════════════
+     SEVAC
+════════════════════════════════════════════ --}}
+<section class="py-14 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex justify-center mb-4">
+            <span class="inline-flex items-center gap-2 bg-[#7B2D8E]/10 text-[#7B2D8E] px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+                <i class="fas fa-table-list"></i> SEVAC
+            </span>
         </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">
+            Sistema de Evaluación de Armonización Contable
+        </h2>
+
+        @if($sevacGrupos->isEmpty())
+            <p class="text-center text-gray-400 py-10 text-sm">No hay información disponible.</p>
+        @else
+            <p class="text-gray-500 text-center text-sm mb-8">Selecciona el periodo que deseas consultar.</p>
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                @foreach($sevacGrupos as $index => $grupo)
+                <button onclick="switchTab('sevac', {{ $grupo->id }}, this)"
+                        data-tipo-tab="sevac"
+                        class="px-5 py-2.5 rounded-full font-bold text-sm transition border-2 {{ $index === 0 ? 'bg-[#7B2D8E] text-white border-[#7B2D8E]' : 'border-gray-300 text-gray-600 hover:border-[#7B2D8E] hover:text-[#7B2D8E] bg-white' }}">
+                    {{ $grupo->nombre_completo }}
+                </button>
+                @endforeach
+            </div>
+            @foreach($sevacGrupos as $index => $grupo)
+            <div id="panel-sevac-{{ $grupo->id }}" data-tipo-panel="sevac" class="{{ $index !== 0 ? 'hidden' : '' }}">
+                @forelse($grupo->secciones as $seccion)
+                <div class="mb-10">
+                    <h3 class="font-black text-base text-gray-900 uppercase mb-2">{{ $seccion->titulo }}</h3>
+                    <hr class="border-[#7B2D8E]/30 mb-4">
+                    @if($seccion->documentos->isNotEmpty())
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-200 rounded-xl overflow-hidden">
+                        @foreach($seccion->documentos as $doc)
+                        @php $url = $doc->tipo_archivo === 'pdf' ? asset($doc->archivo) : $doc->archivo; @endphp
+                        <a href="{{ $url }}" target="_blank"
+                           class="flex items-center gap-3 p-4 border-r border-b border-gray-200 hover:bg-purple-50 transition group">
+                            <i class="fas fa-file-pdf text-2xl text-[#7B2D8E] shrink-0"></i>
+                            <span class="text-[#7B2D8E] font-bold text-xs uppercase leading-snug group-hover:underline">{{ $doc->nombre }}</span>
+                        </a>
+                        @endforeach
+                    </div>
+                    @else
+                    <p class="text-sm text-gray-400 italic">Sin documentos disponibles.</p>
+                    @endif
+                </div>
+                @empty
+                <p class="text-center text-gray-400 py-8 text-sm">No hay secciones para este periodo.</p>
+                @endforelse
+            </div>
+            @endforeach
+        @endif
     </div>
 </section>
 
-{{-- Marco Normativo --}}
-<section class="py-12 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4">
-        <h2 class="text-2xl font-bold text-gray-800 text-center mb-2">Marco Normativo</h2>
-        <p class="text-gray-500 text-sm text-center max-w-2xl mx-auto mb-10">
-            La Ley General de Contabilidad Gubernamental tiene por objeto establecer los criterios generales que
-            regirán la contabilidad gubernamental y la emisión de información financiera de los entes públicos.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-                <h3 class="font-bold text-gray-800 mb-4">Objetivos</h3>
-                <ul class="space-y-2 text-sm text-[#7B2D8E]">
-                    <li class="flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#7B2D8E] shrink-0"></span>
-                        Establecer criterios generales de contabilidad gubernamental
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#7B2D8E] shrink-0"></span>
-                        Propiciar la armonización contable a nivel nacional
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#7B2D8E] shrink-0"></span>
-                        Mejorar la calidad de la información financiera
-                    </li>
-                </ul>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-                <h3 class="font-bold text-gray-800 mb-4">Beneficios</h3>
-                <ul class="space-y-2 text-sm text-[#7B2D8E]">
-                    <li class="flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#7B2D8E] shrink-0"></span>
-                        Transparencia en el manejo de recursos públicos
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#7B2D8E] shrink-0"></span>
-                        Facilita la rendición de cuentas
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#7B2D8E] shrink-0"></span>
-                        Comparabilidad de información financiera
-                    </li>
-                </ul>
-            </div>
+{{-- ═══════════════════════════════════════════
+     CONAC
+════════════════════════════════════════════ --}}
+<section class="py-14 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex justify-center mb-4">
+            <span class="inline-flex items-center gap-2 bg-[#7B2D8E]/10 text-[#7B2D8E] px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+                <i class="fas fa-landmark"></i> CONAC
+            </span>
         </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">
+            Consejo Nacional de Armonización Contable
+        </h2>
+
+        @if($conacGrupos->isEmpty())
+            <p class="text-center text-gray-400 py-10 text-sm">No hay información disponible.</p>
+        @else
+            <p class="text-gray-500 text-center text-sm mb-8">Selecciona el periodo que deseas consultar.</p>
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                @foreach($conacGrupos as $index => $grupo)
+                <button onclick="switchTab('conac', {{ $grupo->id }}, this)"
+                        data-tipo-tab="conac"
+                        class="px-5 py-2.5 rounded-full font-bold text-sm transition border-2 {{ $index === 0 ? 'bg-[#7B2D8E] text-white border-[#7B2D8E]' : 'border-gray-300 text-gray-600 hover:border-[#7B2D8E] hover:text-[#7B2D8E] bg-white' }}">
+                    {{ $grupo->nombre_completo }}
+                </button>
+                @endforeach
+            </div>
+            @foreach($conacGrupos as $index => $grupo)
+            <div id="panel-conac-{{ $grupo->id }}" data-tipo-panel="conac" class="{{ $index !== 0 ? 'hidden' : '' }}">
+                @forelse($grupo->secciones as $seccion)
+                <div class="mb-10">
+                    <h3 class="font-black text-base text-gray-900 uppercase mb-2">{{ $seccion->titulo }}</h3>
+                    <hr class="border-[#7B2D8E]/30 mb-4">
+                    @if($seccion->documentos->isNotEmpty())
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-200 rounded-xl overflow-hidden">
+                        @foreach($seccion->documentos as $doc)
+                        @php $url = $doc->tipo_archivo === 'pdf' ? asset($doc->archivo) : $doc->archivo; @endphp
+                        <a href="{{ $url }}" target="_blank"
+                           class="flex items-center gap-3 p-4 border-r border-b border-gray-200 hover:bg-purple-50 transition group">
+                            <i class="fas fa-file-pdf text-2xl text-[#7B2D8E] shrink-0"></i>
+                            <span class="text-[#7B2D8E] font-bold text-xs uppercase leading-snug group-hover:underline">{{ $doc->nombre }}</span>
+                        </a>
+                        @endforeach
+                    </div>
+                    @else
+                    <p class="text-sm text-gray-400 italic">Sin documentos disponibles.</p>
+                    @endif
+                </div>
+                @empty
+                <p class="text-center text-gray-400 py-8 text-sm">No hay secciones para este periodo.</p>
+                @endforelse
+            </div>
+            @endforeach
+        @endif
     </div>
 </section>
+
+{{-- ═══════════════════════════════════════════
+     PRESUPUESTO — comentado, descomentar cuando se requiera
+{{-- ════════════════════════════════════════════
+<section class="py-14 bg-white">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex justify-center mb-4">
+            <span class="inline-flex items-center gap-2 bg-[#7B2D8E]/10 text-[#7B2D8E] px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+                <i class="fas fa-coins"></i> Presupuesto
+            </span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">
+            Presupuesto y Ejercicio del Gasto
+        </h2>
+
+        @if($presupuestoGrupos->isEmpty())
+            <p class="text-center text-gray-400 py-10 text-sm">No hay información disponible.</p>
+        @else
+            <p class="text-gray-500 text-center text-sm mb-8">Selecciona el periodo que deseas consultar.</p>
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                @foreach($presupuestoGrupos as $index => $grupo)
+                <button onclick="switchTab('presupuesto', {{ $grupo->id }}, this)"
+                        data-tipo-tab="presupuesto"
+                        class="px-5 py-2.5 rounded-full font-bold text-sm transition border-2 {{ $index === 0 ? 'bg-[#7B2D8E] text-white border-[#7B2D8E]' : 'border-gray-300 text-gray-600 hover:border-[#7B2D8E] hover:text-[#7B2D8E] bg-white' }}">
+                    {{ $grupo->nombre_completo }}
+                </button>
+                @endforeach
+            </div>
+            @foreach($presupuestoGrupos as $index => $grupo)
+            <div id="panel-presupuesto-{{ $grupo->id }}" data-tipo-panel="presupuesto" class="{{ $index !== 0 ? 'hidden' : '' }}">
+                @forelse($grupo->secciones as $seccion)
+                <div class="mb-10">
+                    <h3 class="font-black text-base text-gray-900 uppercase mb-2">{{ $seccion->titulo }}</h3>
+                    <hr class="border-[#7B2D8E]/30 mb-4">
+                    @if($seccion->documentos->isNotEmpty())
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-200 rounded-xl overflow-hidden">
+                        @foreach($seccion->documentos as $doc)
+                        @php $url = $doc->tipo_archivo === 'pdf' ? asset($doc->archivo) : $doc->archivo; @endphp
+                        <a href="{{ $url }}" target="_blank"
+                           class="flex items-center gap-3 p-4 border-r border-b border-gray-200 hover:bg-purple-50 transition group">
+                            <i class="fas fa-file-pdf text-2xl text-[#7B2D8E] shrink-0"></i>
+                            <span class="text-[#7B2D8E] font-bold text-xs uppercase leading-snug group-hover:underline">{{ $doc->nombre }}</span>
+                        </a>
+                        @endforeach
+                    </div>
+                    @else
+                    <p class="text-sm text-gray-400 italic">Sin documentos disponibles.</p>
+                    @endif
+                </div>
+                @empty
+                <p class="text-center text-gray-400 py-8 text-sm">No hay secciones para este periodo.</p>
+                @endforelse
+            </div>
+            @endforeach
+        @endif
+    </div>
+</section>
+--}}
+
+<script>
+function switchTab(tipo, grupoId, btn) {
+    document.querySelectorAll('[data-tipo-panel="' + tipo + '"]').forEach(function(el) {
+        el.classList.add('hidden');
+    });
+    var panel = document.getElementById('panel-' + tipo + '-' + grupoId);
+    if (panel) panel.classList.remove('hidden');
+
+    document.querySelectorAll('[data-tipo-tab="' + tipo + '"]').forEach(function(el) {
+        el.className = 'px-5 py-2.5 rounded-full font-bold text-sm transition border-2 border-gray-300 text-gray-600 hover:border-[#7B2D8E] hover:text-[#7B2D8E] bg-white';
+    });
+    btn.className = 'px-5 py-2.5 rounded-full font-bold text-sm transition bg-[#7B2D8E] text-white border-2 border-[#7B2D8E]';
+}
+</script>
 
 @endsection

@@ -21,10 +21,10 @@
                 <p class="text-sm text-gray-500">
                     Estado:
                     @if($existe)
-                        <span class="text-green-600 font-semibold">✔ Archivo cargado</span>
+                        <span class="text-green-600 font-semibold">Archivo cargado</span>
                         — <a href="{{ asset('documents/AvisoPrivacidad.pdf') }}" target="_blank" class="text-[#7B2D8E] hover:underline text-xs">Ver PDF actual</a>
                     @else
-                        <span class="text-red-500 font-semibold">✘ No hay archivo cargado</span>
+                        <span class="text-red-500 font-semibold">Sin archivo</span>
                     @endif
                 </p>
             </div>

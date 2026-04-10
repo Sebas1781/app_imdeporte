@@ -39,17 +39,8 @@
                             @error('nombre') <p class="text-red-500 text-xs mt-1 flex items-center gap-1"><i class="fas fa-exclamation-circle text-xs"></i> {{ $message }}</p> @enderror
                         </div>
 
-                        {{-- Slug --}}
-                        <div>
-                            <label for="slug" class="block text-sm font-semibold text-gray-700 mb-2">
-                                Slug
-                                <span class="text-gray-400 font-normal text-xs">(se genera automático si está vacío)</span>
-                            </label>
-                            <input type="text" id="slug" name="slug" value="{{ old('slug') }}"
-                                   class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-transparent transition font-mono text-gray-600"
-                                   placeholder="mi-categoria">
-                            @error('slug') <p class="text-red-500 text-xs mt-1 flex items-center gap-1"><i class="fas fa-exclamation-circle text-xs"></i> {{ $message }}</p> @enderror
-                        </div>
+                        {{-- Slug (se genera automáticamente desde el nombre) --}}
+                        <input type="hidden" name="slug" value="{{ old('slug') }}">
                     </div>
                 </div>
 

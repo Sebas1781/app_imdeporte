@@ -27,12 +27,15 @@ use App\Http\Controllers\Admin\DocumentoController;
 use App\Http\Controllers\Admin\InstitutoController as AdminInstitutoController;
 use App\Http\Controllers\Admin\RemtysCategoriaController;
 use App\Http\Controllers\Admin\RemtysDocumentoController;
+use App\Http\Controllers\Admin\TransparenciaGrupoController;
+use App\Http\Controllers\Admin\TransparenciaSeccionController;
+use App\Http\Controllers\Admin\TransparenciaDocumentoController;
 
 // Public routes
 Route::get('/aviso-privacidad', fn() => view('aviso-privacidad'))->name('aviso-privacidad');
 Route::get('/servicios/remtys', [RemtysPublicController::class, 'index'])->name('servicios.remtys');
 Route::get('/servicios/remtys/{slug}', [RemtysPublicController::class, 'show'])->name('servicios.remtys.show');
-Route::get('/transparencia/ley-contabilidad', fn() => view('transparencia.ley-contabilidad'))->name('transparencia.ley-contabilidad');
+Route::get('/transparencia/ley-contabilidad', [TransparenciaController::class, 'leyContabilidad'])->name('transparencia.ley-contabilidad');
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/instituto', [InstitutoController::class, 'index'])->name('instituto.index');
@@ -143,6 +146,24 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/remtys/{categoria}/documentos/create', [RemtysDocumentoController::class, 'create'])->name('remtys.documentos.create');
     Route::post('/remtys/{categoria}/documentos', [RemtysDocumentoController::class, 'store'])->name('remtys.documentos.store');
     Route::delete('/remtys/{categoria}/documentos/{documento}', [RemtysDocumentoController::class, 'destroy'])->name('remtys.documentos.destroy');
+
+    // Transparencia — SEVAC / CONAC / Presupuesto
+    Route::get('/transparencia/{tipo}', [TransparenciaGrupoController::class, 'index'])->name('transparencia.index');
+    Route::get('/transparencia/{tipo}/crear', [TransparenciaGrupoController::class, 'create'])->name('transparencia.grupos.create');
+    Route::post('/transparencia/{tipo}', [TransparenciaGrupoController::class, 'store'])->name('transparencia.grupos.store');
+    Route::get('/transparencia/{tipo}/{grupo}/editar', [TransparenciaGrupoController::class, 'edit'])->name('transparencia.grupos.edit');
+    Route::put('/transparencia/{tipo}/{grupo}', [TransparenciaGrupoController::class, 'update'])->name('transparencia.grupos.update');
+    Route::delete('/transparencia/{tipo}/{grupo}', [TransparenciaGrupoController::class, 'destroy'])->name('transparencia.grupos.destroy');
+
+    Route::get('/transparencia/{tipo}/{grupo}/secciones', [TransparenciaSeccionController::class, 'index'])->name('transparencia.secciones.index');
+    Route::get('/transparencia/{tipo}/{grupo}/secciones/crear', [TransparenciaSeccionController::class, 'create'])->name('transparencia.secciones.create');
+    Route::post('/transparencia/{tipo}/{grupo}/secciones', [TransparenciaSeccionController::class, 'store'])->name('transparencia.secciones.store');
+    Route::delete('/transparencia/{tipo}/{grupo}/secciones/{seccion}', [TransparenciaSeccionController::class, 'destroy'])->name('transparencia.secciones.destroy');
+
+    Route::get('/transparencia/{tipo}/{grupo}/secciones/{seccion}/documentos', [TransparenciaDocumentoController::class, 'index'])->name('transparencia.documentos.index');
+    Route::get('/transparencia/{tipo}/{grupo}/secciones/{seccion}/documentos/crear', [TransparenciaDocumentoController::class, 'create'])->name('transparencia.documentos.create');
+    Route::post('/transparencia/{tipo}/{grupo}/secciones/{seccion}/documentos', [TransparenciaDocumentoController::class, 'store'])->name('transparencia.documentos.store');
+    Route::delete('/transparencia/{tipo}/{grupo}/secciones/{seccion}/documentos/{documento}', [TransparenciaDocumentoController::class, 'destroy'])->name('transparencia.documentos.destroy');
 
     // Instituto
     Route::get('/instituto', [AdminInstitutoController::class, 'index'])->name('instituto.index');
