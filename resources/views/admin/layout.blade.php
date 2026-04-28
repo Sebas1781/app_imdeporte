@@ -14,8 +14,8 @@
 <body class="font-sans antialiased bg-gray-100 text-gray-800">
     <div class="min-h-screen flex">
         {{-- Sidebar --}}
-        <aside id="sidebar" class="w-64 bg-[#3D1252] text-white shrink-0 fixed inset-y-0 left-0 z-30 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-200 ease-in-out">
-            <div class="p-6 border-b border-white/10">
+        <aside id="sidebar" class="w-64 bg-[#3D1252] text-white shrink-0 fixed inset-y-0 left-0 z-30 transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-200 ease-in-out flex flex-col overflow-hidden">
+            <div class="p-6 border-b border-white/10 shrink-0">
                 <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
                     <img src="/images/logoImdeporte.png" alt="IMDEPORTE" class="h-10 w-auto bg-white rounded px-2 py-1">
                     <div>
@@ -25,7 +25,7 @@
                 </a>
             </div>
 
-            <nav class="p-4 space-y-1">
+            <nav class="p-4 space-y-1 overflow-y-auto flex-1 pb-32">
                 <a href="{{ route('admin.dashboard') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
                           {{ request()->routeIs('admin.dashboard') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
@@ -135,7 +135,7 @@
                 </a>
             </nav>
 
-            <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white/10">
+            <div class="p-4 border-t border-white/10 shrink-0 bg-[#3D1252]">
                 <a href="/" class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-gray-300 hover:bg-white/10 hover:text-white transition">
                     <i class="fas fa-globe w-5 text-center"></i>
                     Ver sitio público
@@ -177,6 +177,30 @@
             </main>
         </div>
     </div>
+
+    {{-- ========== CUSTOM SCROLLBAR FOR SIDEBAR ========== --}}
+    <style>
+        /* Custom scrollbar for sidebar navigation */
+        #sidebar nav::-webkit-scrollbar {
+            width: 6px;
+        }
+        #sidebar nav::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+        }
+        #sidebar nav::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+        #sidebar nav::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        /* For Firefox */
+        #sidebar nav {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+        }
+    </style>
 
     {{-- ========== MODAL ANIMATIONS ========== --}}
     <style>

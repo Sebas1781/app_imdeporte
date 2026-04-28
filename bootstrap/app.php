@@ -14,6 +14,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin' => \App\Http\Middleware\IsAdmin::class,
         ]);
+        
+        // Redirigir usuarios no autenticados a /admin/login
+        $middleware->redirectGuestsTo('/admin/login');
+        
+        // Redirigir usuarios autenticados al dashboard si intentan acceder al login
+        $middleware->redirectUsersTo('/admin');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

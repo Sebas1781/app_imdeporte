@@ -54,8 +54,8 @@ Route::get('/convocatorias', [ConvocatoriaPublicController::class, 'index'])->na
 Route::get('/convocatorias/{convocatoria}', [ConvocatoriaPublicController::class, 'show'])->name('convocatorias.show');
 
 // Auth routes
-Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [LoginController::class, 'login'])->name('admin.login.submit');
+Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->middleware('guest')->name('admin.login');
+Route::post('/admin/login', [LoginController::class, 'login'])->middleware('guest')->name('admin.login.submit');
 Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
 // Admin routes (protected)
