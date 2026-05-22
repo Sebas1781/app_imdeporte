@@ -92,13 +92,6 @@
                     <i class="fas fa-file-pdf w-5 text-center"></i>
                     Documentos
                 </a>
-                <a href="{{ route('admin.remtys.index') }}"
-                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
-                          {{ request()->routeIs('admin.remtys.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
-                    <i class="fas fa-folder-open w-5 text-center"></i>
-                    REMTYS
-                </a>
-
                 {{-- Separador Transparencia --}}
                 <div class="px-4 pt-3 pb-1">
                     <p class="text-[10px] font-bold uppercase tracking-widest text-white/30">Transparencia</p>
