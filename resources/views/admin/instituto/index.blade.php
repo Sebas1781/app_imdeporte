@@ -107,7 +107,7 @@
                     </td>
                     <td class="px-6 py-4 text-right">
                         <div class="flex items-center justify-end gap-2">
-                            <button onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->nombre) }}', '{{ addslashes($item->responsable ?? '') }}', {{ $item->nivel }}, {{ $item->orden }}, {{ $item->activo ? 'true' : 'false' }})"  
+                            <button onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->nombre) }}', '{{ addslashes($item->responsable ?? '') }}', {{ $item->nivel }}, {{ $item->orden }}, {{ $item->activo ? 'true' : 'false' }})"
                                 class="text-blue-600 hover:text-blue-800 transition" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </button>
