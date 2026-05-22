@@ -39,10 +39,11 @@ class InstitutoController extends Controller
     public function storeItem(Request $request)
     {
         $data = $request->validate([
-            'nombre' => 'required|string|max:255',
-            'nivel'  => 'required|integer|in:1,2,3',
-            'orden'  => 'nullable|integer',
-            'activo' => 'nullable|boolean',
+            'nombre'      => 'required|string|max:255',
+            'responsable' => 'nullable|string|max:255',
+            'nivel'       => 'required|integer|in:1,2,3,4',
+            'orden'       => 'nullable|integer',
+            'activo'      => 'nullable|boolean',
         ]);
 
         $data['activo'] = $request->has('activo');
@@ -57,10 +58,11 @@ class InstitutoController extends Controller
     public function updateItem(Request $request, OrganigramaItem $item)
     {
         $data = $request->validate([
-            'nombre' => 'required|string|max:255',
-            'nivel'  => 'required|integer|in:1,2,3',
-            'orden'  => 'nullable|integer',
-            'activo' => 'nullable|boolean',
+            'nombre'      => 'required|string|max:255',
+            'responsable' => 'nullable|string|max:255',
+            'nivel'       => 'required|integer|in:1,2,3,4',
+            'orden'       => 'nullable|integer',
+            'activo'      => 'nullable|boolean',
         ]);
 
         $data['activo'] = $request->has('activo');

@@ -44,11 +44,16 @@
         <div class="flex flex-col items-center gap-3">
             @forelse($items as $item)
                 @php
-                    $colors = [1 => '#7B2D8E', 2 => '#A855A0', 3 => '#C084CF'];
-                    $bg = $colors[$item->nivel] ?? '#7B2D8E';
+                    $colors = [1 => '#7B2D8E', 2 => '#A855A0', 3 => '#C084CF', 4 => '#DDA0DD'];
+                    $bg     = $colors[$item->nivel] ?? '#7B2D8E';
+                    $widths = [1 => 'max-w-md', 2 => 'max-w-lg', 3 => 'max-w-xl', 4 => 'max-w-2xl'];
+                    $w      = $widths[$item->nivel] ?? 'max-w-md';
                 @endphp
-                <div class="w-full max-w-md text-white text-center py-3 px-6 rounded-full font-semibold shadow" style="background-color: {{ $bg }}">
+                <div class="w-full {{ $w }} text-white text-center py-3 px-6 rounded-full font-semibold shadow" style="background-color: {{ $bg }}">
                     {{ $item->nombre }}
+                    @if(!empty($item->responsable))
+                        <span class="block text-xs font-normal opacity-80 mt-0.5">{{ $item->responsable }}</span>
+                    @endif
                 </div>
             @empty
                 {{-- Fallback estático si no hay datos --}}

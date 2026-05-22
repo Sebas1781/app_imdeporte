@@ -75,6 +75,7 @@
             <tr>
                 <th class="text-left px-6 py-3 font-semibold text-gray-600">Orden</th>
                 <th class="text-left px-6 py-3 font-semibold text-gray-600">Nombre</th>
+                <th class="text-left px-6 py-3 font-semibold text-gray-600">Responsable</th>
                 <th class="text-left px-6 py-3 font-semibold text-gray-600">Nivel</th>
                 <th class="text-left px-6 py-3 font-semibold text-gray-600">Estado</th>
                 <th class="text-right px-6 py-3 font-semibold text-gray-600">Acciones</th>
@@ -85,13 +86,16 @@
                 <tr class="hover:bg-gray-50 transition">
                     <td class="px-6 py-4 text-gray-600">{{ $item->orden }}</td>
                     <td class="px-6 py-4 font-medium text-gray-800">{{ $item->nombre }}</td>
+                    <td class="px-6 py-4 text-gray-600">{{ $item->responsable ?? '—' }}</td>
                     <td class="px-6 py-4">
                         @if($item->nivel == 1)
                             <span class="inline-block w-4 h-4 rounded-full bg-[#7B2D8E] mr-1 align-middle"></span> Nivel 1
                         @elseif($item->nivel == 2)
                             <span class="inline-block w-4 h-4 rounded-full bg-[#A855A0] mr-1 align-middle"></span> Nivel 2
-                        @else
+                        @elseif($item->nivel == 3)
                             <span class="inline-block w-4 h-4 rounded-full bg-[#C084CF] mr-1 align-middle"></span> Nivel 3
+                        @else
+                            <span class="inline-block w-4 h-4 rounded-full bg-[#DDA0DD] mr-1 align-middle"></span> Nivel 4
                         @endif
                     </td>
                     <td class="px-6 py-4">
@@ -103,7 +107,7 @@
                     </td>
                     <td class="px-6 py-4 text-right">
                         <div class="flex items-center justify-end gap-2">
-                            <button onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->nombre) }}', {{ $item->nivel }}, {{ $item->orden }}, {{ $item->activo ? 'true' : 'false' }})"
+                            <button onclick="openEditModal({{ $item->id }}, '{{ addslashes($item->nombre) }}', '{{ addslashes($item->responsable ?? '') }}', {{ $item->nivel }}, {{ $item->orden }}, {{ $item->activo ? 'true' : 'false' }})"  
                                 class="text-blue-600 hover:text-blue-800 transition" title="Editar">
                                 <i class="fas fa-edit"></i>
                             </button>
@@ -120,7 +124,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="5" class="px-6 py-10 text-center text-gray-400">
+                    <td colspan="6" class="px-6 py-10 text-center text-gray-400">
                         No hay elementos en el organigrama.
                     </td>
                 </tr>
@@ -139,13 +143,18 @@
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre</label>
                 <input type="text" name="nombre" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-transparent">
             </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Responsable</label>
+                <input type="text" name="responsable" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-transparent" placeholder="Nombre del responsable o 'Vacante'">
+            </div>
             <div class="grid grid-cols-2 gap-4 mb-4">
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Nivel</label>
                     <select name="nivel" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-transparent">
                         <option value="1">Nivel 1 (Principal)</option>
-                        <option value="2">Nivel 2 (Coordinación)</option>
-                        <option value="3">Nivel 3 (Departamento)</option>
+                        <option value="2">Nivel 2 (Dirección/Unidad)</option>
+                        <option value="3">Nivel 3 (Subdirección/Departamento)</option>
+                        <option value="4">Nivel 4 (Departamento)</option>
                     </select>
                 </div>
                 <div>
@@ -182,13 +191,18 @@
                 <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre</label>
                 <input type="text" name="nombre" id="edit-nombre" required class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-transparent">
             </div>
+            <div class="mb-4">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Responsable</label>
+                <input type="text" name="responsable" id="edit-responsable" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-transparent" placeholder="Nombre del responsable o 'Vacante'">
+            </div>
             <div class="grid grid-cols-2 gap-4 mb-4">
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-1">Nivel</label>
                     <select name="nivel" id="edit-nivel" class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-transparent">
                         <option value="1">Nivel 1 (Principal)</option>
-                        <option value="2">Nivel 2 (Coordinación)</option>
-                        <option value="3">Nivel 3 (Departamento)</option>
+                        <option value="2">Nivel 2 (Dirección/Unidad)</option>
+                        <option value="3">Nivel 3 (Subdirección/Departamento)</option>
+                        <option value="4">Nivel 4 (Departamento)</option>
                     </select>
                 </div>
                 <div>
@@ -216,9 +230,10 @@
 </div>
 
 <script>
-function openEditModal(id, nombre, nivel, orden, activo) {
+function openEditModal(id, nombre, responsable, nivel, orden, activo) {
     document.getElementById('form-editar').action = '/admin/instituto/organigrama/' + id;
     document.getElementById('edit-nombre').value = nombre;
+    document.getElementById('edit-responsable').value = responsable;
     document.getElementById('edit-nivel').value = nivel;
     document.getElementById('edit-orden').value = orden;
     document.getElementById('edit-activo').checked = activo;

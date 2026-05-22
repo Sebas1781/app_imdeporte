@@ -8,6 +8,7 @@ class OrganigramaItem extends Model
 {
     protected $fillable = [
         'nombre',
+        'responsable',
         'nivel',
         'orden',
         'activo',
