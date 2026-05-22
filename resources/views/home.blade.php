@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@php 
+@php
 use Illuminate\Support\Str;
 @endphp
 
