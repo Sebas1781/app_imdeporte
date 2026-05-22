@@ -121,6 +121,12 @@
                     <i class="fas fa-coins w-5 text-center"></i>
                     Presupuesto
                 </a>
+                <a href="{{ route('admin.transparencia.index', 'cuenta-publica') }}"
+                   class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
+                          {{ request()->routeIs('admin.transparencia.*') && request()->route('tipo') === 'cuenta-publica' ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">
+                    <i class="fas fa-book-open w-5 text-center"></i>
+                    Cuenta Pública
+                </a>
                 <a href="{{ route('admin.instituto.index') }}"
                    class="flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition
                           {{ request()->routeIs('admin.instituto.*') ? 'bg-[#7B2D8E] text-white' : 'text-gray-300 hover:bg-white/10 hover:text-white' }}">

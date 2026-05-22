@@ -99,8 +99,11 @@
                         <a href="{{ route('transparencia.index') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-t-xl transition">
                             <i class="fas fa-eye text-[#7B2D8E] w-4"></i> Transparencia
                         </a>
-                        <a href="{{ route('transparencia.ley-contabilidad') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-b-xl transition">
+                        <a href="{{ route('transparencia.ley-contabilidad') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] transition">
                             <i class="fas fa-landmark text-[#7B2D8E] w-4"></i> Ley General de Contabilidad Gubernamental
+                        </a>
+                        <a href="{{ route('transparencia.cuenta-publica') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-b-xl transition">
+                            <i class="fas fa-book-open text-[#7B2D8E] w-4"></i> Cuenta Pública
                         </a>
                     </div>
                 </div>
@@ -129,6 +132,7 @@
             <a href="{{ route('deporte.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
             <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
             <a href="{{ route('transparencia.ley-contabilidad') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Ley General de Contabilidad Gubernamental</a>
+            <a href="{{ route('transparencia.cuenta-publica') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Cuenta Pública</a>
             {{-- Redes sociales en menú móvil --}}
             <div class="flex items-center gap-3 pt-3">
                 <a href="#" class="w-8 h-8 bg-[#1877F2] rounded-full flex items-center justify-center text-white">
@@ -194,10 +198,6 @@
             </div>
             <div class="border-t border-white/20 mt-8 pt-4 text-center text-xs text-gray-400">
                 &copy; {{ date('Y') }} IMDEPORTE Tecámac - Instituto Municipal de Cultura Física y Deporte. Todos los derechos reservados.
-                <span class="mx-2">|</span>
-                <a href="{{ route('admin.login') }}" class="text-gray-500 hover:text-white transition" title="Administración">
-                    <i class="fas fa-lock text-[10px]"></i> Administración
-                </a>
             </div>
         </div>
     </footer>

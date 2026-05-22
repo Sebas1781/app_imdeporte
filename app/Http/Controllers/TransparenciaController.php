@@ -24,4 +24,16 @@ class TransparenciaController extends Controller
 
         return view('transparencia.ley-contabilidad', compact('sevacGrupos', 'conacGrupos', 'presupuestoGrupos'));
     }
+
+    public function cuentaPublica()
+    {
+        $load = [
+            'secciones',
+            'secciones.documentos' => fn($q) => $q->where('activo', true)->orderBy('orden'),
+        ];
+
+        $grupos = TransparenciaGrupo::with($load)->where('tipo', 'cuenta-publica')->orderBy('anio', 'desc')->get();
+
+        return view('transparencia.cuenta-publica', compact('grupos'));
+    }
 }

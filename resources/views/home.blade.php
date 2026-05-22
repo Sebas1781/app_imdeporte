@@ -113,8 +113,8 @@ use Illuminate\Support\Str;
     <img src="/images/noticias_interes.jpg" alt="Noticias de Interés" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-linear-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
-        <h2 class="text-white text-4xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">NOTICIAS DE INTERÉS</h2>
-        <p class="text-white/90 text-lg md:text-xl mt-3 drop-shadow">Entérate de las últimas noticias del municipio.</p>
+        <h2 class="text-white text-4xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">BOLETINES</h2>
+        <p class="text-white/90 text-lg md:text-xl mt-3 drop-shadow">Consulta los últimos boletines del instituto.</p>
     </div>
 </section>
 
@@ -160,7 +160,7 @@ use Illuminate\Support\Str;
 
         <div class="flex justify-center mt-6">
             <a href="{{ route('boletines.index') }}" class="inline-flex items-center gap-2 bg-[#7B2D8E] hover:bg-[#5c1a6e] text-white font-bold py-3 px-8 rounded-full shadow transition">
-                <i class="fas fa-newspaper"></i> Últimas noticias
+                <i class="fas fa-newspaper"></i> Últimos boletines
             </a>
         </div>
     </div>

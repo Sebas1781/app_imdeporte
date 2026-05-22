@@ -10,7 +10,7 @@ class TransparenciaGrupoController extends Controller
 {
     private function validateTipo(string $tipo): void
     {
-        if (!in_array($tipo, ['sevac', 'conac', 'presupuesto'])) {
+        if (!in_array($tipo, ['sevac', 'conac', 'presupuesto', 'cuenta-publica'])) {
             abort(404);
         }
     }
@@ -18,10 +18,11 @@ class TransparenciaGrupoController extends Controller
     private function tipoLabel(string $tipo): string
     {
         return match ($tipo) {
-            'sevac'       => 'SEVAC',
-            'conac'       => 'CONAC',
-            'presupuesto' => 'Presupuesto',
-            default       => strtoupper($tipo),
+            'sevac'          => 'SEVAC',
+            'conac'          => 'CONAC',
+            'presupuesto'    => 'Presupuesto',
+            'cuenta-publica' => 'Cuenta Pública',
+            default          => strtoupper($tipo),
         };
     }
 

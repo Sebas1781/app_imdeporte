@@ -36,6 +36,7 @@ Route::get('/aviso-privacidad', fn() => view('aviso-privacidad'))->name('aviso-p
 Route::get('/servicios/remtys', [RemtysPublicController::class, 'index'])->name('servicios.remtys');
 Route::get('/servicios/remtys/{slug}', [RemtysPublicController::class, 'show'])->name('servicios.remtys.show');
 Route::get('/transparencia/ley-contabilidad', [TransparenciaController::class, 'leyContabilidad'])->name('transparencia.ley-contabilidad');
+Route::get('/transparencia/cuenta-publica', [TransparenciaController::class, 'cuentaPublica'])->name('transparencia.cuenta-publica');
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/instituto', [InstitutoController::class, 'index'])->name('instituto.index');

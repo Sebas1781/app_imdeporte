@@ -18,9 +18,10 @@ class TransparenciaGrupo extends Model
     public function getNombreCompletoAttribute(): string
     {
         $labels = [
-            'sevac'       => 'SEVAC',
-            'conac'       => 'CONAC',
-            'presupuesto' => 'Presupuesto',
+            'sevac'          => 'SEVAC',
+            'conac'          => 'CONAC',
+            'presupuesto'    => 'Presupuesto',
+            'cuenta-publica' => 'Cuenta Pública',
         ];
         return ($labels[$this->tipo] ?? strtoupper($this->tipo)) . ' ' . $this->anio;
     }
