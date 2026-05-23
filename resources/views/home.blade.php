@@ -4,6 +4,14 @@
 use Illuminate\Support\Str;
 @endphp
 
+@section('title', 'IMDEPORTE Tecámac - Instituto Municipal de Cultura Física y Deporte')
+@section('meta_description', 'Instituto Municipal de Cultura Física y Deporte de Tecámac. Programas deportivos, eventos, convocatorias, noticias y servicios para la comunidad.')
+@section('meta_keywords', 'IMDEPORTE, Tecámac, deporte, cultura física, activación física, programas deportivos, eventos, convocatorias, municipio de Tecámac')
+@section('og_title', 'IMDEPORTE Tecámac - Instituto Municipal de Cultura Física y Deporte')
+@section('og_description', 'Conoce los programas deportivos, eventos, convocatorias y noticias del Instituto Municipal de Cultura Física y Deporte de Tecámac.')
+@section('og_image', asset('images/logoImdeporte.png'))
+@section('og_type', 'website')
+
 @section('content')
 
 {{-- ===================================================================== --}}

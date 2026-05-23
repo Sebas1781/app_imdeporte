@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Todos los Boletines - IMDEPORTE Tecámac')
+@section('title', 'Boletines - IMDEPORTE Tecámac')
+@section('meta_description', 'Boletines informativos del Instituto Municipal de Cultura Física y Deporte de Tecámac. Descarga los boletines oficiales del IMDEPORTE.')
+@section('og_title', 'Boletines - IMDEPORTE Tecámac')
+@section('og_description', 'Boletines informativos oficiales del IMDEPORTE Tecámac.')
+@section('canonical', route('boletines.index'))
 
 @section('content')
 

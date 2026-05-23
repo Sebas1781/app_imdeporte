@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('title', $convocatoria->titulo . ' - IMDEPORTE Tecámac')
+@section('meta_description', Str::limit(strip_tags($convocatoria->descripcion ?? ''), 160))
+@section('og_title', $convocatoria->titulo . ' - IMDEPORTE Tecámac')
+@section('og_description', Str::limit(strip_tags($convocatoria->descripcion ?? ''), 160))
+@section('og_image', asset('images/logoImdeporte.png'))
+@section('og_type', 'article')
+@section('canonical', route('convocatorias.show', $convocatoria))
+
+@php use Illuminate\Support\Str; @endphp
 
 @section('content')
 

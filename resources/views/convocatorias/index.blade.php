@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Todas las Convocatorias - IMDEPORTE Tecámac')
+@section('title', 'Convocatorias - IMDEPORTE Tecámac')
+@section('meta_description', 'Convocatorias deportivas abiertas del Instituto Municipal de Cultura Física y Deporte de Tecámac. Inscríbete en torneos y programas.')
+@section('og_title', 'Convocatorias - IMDEPORTE Tecámac')
+@section('og_description', 'Convocatorias deportivas abiertas del municipio de Tecámac. Inscríbete en torneos y programas.')
+@section('canonical', route('convocatorias.index'))
 
 @section('content')
 

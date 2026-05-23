@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Eventos - IMDEPORTE Tecámac')
+@section('meta_description', 'Calendario de eventos deportivos del Instituto Municipal de Cultura Física y Deporte de Tecámac. Torneos, competencias y actividades para la comunidad.')
+@section('og_title', 'Eventos Deportivos - IMDEPORTE Tecámac')
+@section('og_description', 'Torneos, competencias y eventos deportivos del municipio de Tecámac.')
+@section('canonical', route('eventos.index'))
 
 @section('content')
 

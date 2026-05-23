@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('title', $noticia->titulo . ' - IMDEPORTE Tecámac')
+@section('meta_description', Str::limit(strip_tags($noticia->contenido ?? $noticia->resumen ?? ''), 160))
+@section('og_title', $noticia->titulo . ' - IMDEPORTE Tecámac')
+@section('og_description', Str::limit(strip_tags($noticia->contenido ?? $noticia->resumen ?? ''), 160))
+@section('og_image', $noticia->imagen ?? asset('images/logoImdeporte.png'))
+@section('og_type', 'article')
+@section('canonical', route('noticias.show', $noticia))
+
+@php use Illuminate\Support\Str; @endphp
 
 @section('content')
 

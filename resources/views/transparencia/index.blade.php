@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Transparencia - IMDEPORTE Tecámac')
+@section('meta_description', 'Portal de transparencia del Instituto Municipal de Cultura Física y Deporte de Tecámac. Documentos, informes y obligaciones de transparencia.')
+@section('og_title', 'Transparencia - IMDEPORTE Tecámac')
+@section('og_description', 'Portal de transparencia y acceso a la información del IMDEPORTE Tecámac.')
+@section('canonical', route('transparencia.index'))
 
 @section('content')
 

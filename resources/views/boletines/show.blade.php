@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('title', $boletin->titulo . ' - IMDEPORTE Tecámac')
+@section('meta_description', Str::limit(strip_tags($boletin->descripcion ?? $boletin->titulo), 160))
+@section('og_title', $boletin->titulo . ' - IMDEPORTE Tecámac')
+@section('og_description', Str::limit(strip_tags($boletin->descripcion ?? $boletin->titulo), 160))
+@section('og_type', 'article')
+@section('canonical', route('boletines.show', $boletin))
+
+@php use Illuminate\Support\Str; @endphp
 
 @section('content')
 

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Instituto - IMDEPORTE Tecámac')
+@section('title', 'El Instituto - IMDEPORTE Tecámac')
+@section('meta_description', 'Conoce el Instituto Municipal de Cultura Física y Deporte de Tecámac: misión, visión, organigrama y estructura organizacional.')
+@section('og_title', 'El Instituto - IMDEPORTE Tecámac')
+@section('og_description', 'Misión, visión y estructura del Instituto Municipal de Cultura Física y Deporte de Tecámac.')
+@section('canonical', route('instituto.index'))
 
 @section('content')
 

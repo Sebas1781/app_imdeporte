@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Noticias - IMDEPORTE Tecámac')
+@section('meta_description', 'Últimas noticias del Instituto Municipal de Cultura Física y Deporte de Tecámac. Entérate de todo lo que pasa en el deporte municipal.')
+@section('og_title', 'Noticias - IMDEPORTE Tecámac')
+@section('og_description', 'Últimas noticias del Instituto Municipal de Cultura Física y Deporte de Tecámac.')
+@section('canonical', route('noticias.index'))
 
 @section('content')
 

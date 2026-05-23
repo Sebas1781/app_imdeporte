@@ -12,6 +12,7 @@ use App\Http\Controllers\CulturaFisicaController;
 use App\Http\Controllers\DeporteController;
 use App\Http\Controllers\TransparenciaController;
 use App\Http\Controllers\RemtysPublicController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CarouselController;
@@ -32,6 +33,7 @@ use App\Http\Controllers\Admin\TransparenciaSeccionController;
 use App\Http\Controllers\Admin\TransparenciaDocumentoController;
 
 // Public routes
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 Route::get('/aviso-privacidad', fn() => view('aviso-privacidad'))->name('aviso-privacidad');
 Route::get('/servicios/remtys', [RemtysPublicController::class, 'index'])->name('servicios.remtys');
 Route::get('/servicios/remtys/{slug}', [RemtysPublicController::class, 'show'])->name('servicios.remtys.show');

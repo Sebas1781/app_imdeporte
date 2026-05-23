@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('title', $evento->titulo . ' - IMDEPORTE Tecámac')
+@section('meta_description', Str::limit(strip_tags($evento->descripcion ?? ''), 160))
+@section('og_title', $evento->titulo . ' - IMDEPORTE Tecámac')
+@section('og_description', Str::limit(strip_tags($evento->descripcion ?? ''), 160))
+@section('og_image', $evento->imagen ?? asset('images/logoImdeporte.png'))
+@section('og_type', 'article')
+@section('canonical', route('eventos.show', $evento))
+
+@php use Illuminate\Support\Str; @endphp
 
 @section('content')
 

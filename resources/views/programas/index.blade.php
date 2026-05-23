@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Programas - IMDEPORTE Tecámac')
+@section('title', 'Programas Deportivos - IMDEPORTE Tecámac')
+@section('meta_description', 'Conoce todos los programas deportivos y de activación física del Instituto Municipal de Cultura Física y Deporte de Tecámac.')
+@section('og_title', 'Programas Deportivos - IMDEPORTE Tecámac')
+@section('og_description', 'Programas de deporte y activación física para la comunidad de Tecámac.')
+@section('canonical', route('programas.index'))
 
 @section('content')
 

@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('title', $programa->titulo . ' - IMDEPORTE Tecámac')
+@section('meta_description', Str::limit(strip_tags($programa->descripcion ?? ''), 160))
+@section('og_title', $programa->titulo . ' - IMDEPORTE Tecámac')
+@section('og_description', Str::limit(strip_tags($programa->descripcion ?? ''), 160))
+@section('og_type', 'article')
+@section('canonical', route('programas.show', $programa))
+
+@php use Illuminate\Support\Str; @endphp
 
 @section('content')
 

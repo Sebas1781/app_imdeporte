@@ -3,7 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {{-- ===== SEO: Título y descripción ===== --}}
     <title>@yield('title', 'IMDEPORTE - Instituto Municipal de Cultura Física y Deporte')</title>
+    <meta name="description" content="@yield('meta_description', 'Instituto Municipal de Cultura Física y Deporte de Tecámac. Conoce nuestros programas deportivos, eventos, convocatorias, noticias y servicios para la comunidad.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'IMDEPORTE, deporte, Tecámac, cultura física, programas deportivos, eventos deportivos, convocatorias, activación física, municipio')">
+    <meta name="author" content="IMDEPORTE Tecámac">
+    <meta name="robots" content="@yield('meta_robots', 'index, follow')">
+    <link rel="canonical" href="@yield('canonical', url()->current())">
+
+    {{-- ===== Open Graph (Facebook / WhatsApp / LinkedIn) ===== --}}
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:site_name" content="IMDEPORTE Tecámac">
+    <meta property="og:title" content="@yield('og_title', 'IMDEPORTE - Instituto Municipal de Cultura Física y Deporte')">
+    <meta property="og:description" content="@yield('og_description', 'Instituto Municipal de Cultura Física y Deporte de Tecámac. Programas deportivos, eventos, convocatorias y noticias para la comunidad.')">
+    <meta property="og:image" content="@yield('og_image', asset('images/logoImdeporte.png'))">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="@yield('canonical', url()->current())">
+    <meta property="og:locale" content="es_MX">
+
+    {{-- ===== Twitter Card ===== --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('og_title', 'IMDEPORTE - Instituto Municipal de Cultura Física y Deporte')">
+    <meta name="twitter:description" content="@yield('og_description', 'Instituto Municipal de Cultura Física y Deporte de Tecámac. Programas deportivos, eventos, convocatorias y noticias para la comunidad.')">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/logoImdeporte.png'))">
+
+    {{-- ===== Favicon ===== --}}
     <link rel="icon" type="image/png" href="/images/logoImdeporte.png">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700,800&display=swap" rel="stylesheet" />

@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', 'Cultura Física - IMDEPORTE Tecámac')
+@section('meta_description', 'Actividades y programas de cultura física del Instituto Municipal de Deporte de Tecámac. Activación física, salud y bienestar para toda la comunidad.')
+@section('og_title', 'Cultura Física - IMDEPORTE Tecámac')
+@section('og_description', 'Programas de activación física, salud y bienestar para la comunidad de Tecámac.')
+@section('canonical', route('cultura-fisica.index'))
 
 @section('content')
 
