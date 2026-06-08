@@ -30,8 +30,8 @@
     <div class="max-w-4xl mx-auto px-4">
         <article class="bg-white rounded-xl overflow-hidden">
             @if($convocatoria->imagen)
-                <div class="w-full max-h-[500px] overflow-hidden rounded-xl mb-8">
-                    <img src="{{ $convocatoria->imagen }}" alt="{{ $convocatoria->titulo }}" class="w-full h-full object-cover">
+                <div class="w-full rounded-xl mb-8">
+                    <img src="{{ $convocatoria->imagen }}" alt="{{ $convocatoria->titulo }}" class="w-full h-auto rounded-xl">
                 </div>
             @endif
 
