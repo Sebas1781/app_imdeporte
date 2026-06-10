@@ -31,13 +31,27 @@
                 <label for="imagen" class="block text-sm font-semibold text-gray-700 mb-1">Imagen</label>
                 @if($noticia->imagen)
                     <div class="mb-2">
-                        <img src="{{ $noticia->imagen }}" alt="{{ $noticia->titulo }}" class="w-40 h-24 object-cover rounded-lg border">
+                        <img src="{{ $noticia->imagen }}" alt="{{ $noticia->titulo }}" class="w-40 h-auto object-contain rounded-lg border bg-gray-50">
                     </div>
                 @endif
                 <input type="file" id="imagen" name="imagen" accept="image/*"
                        class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-[#7B2D8E] transition">
                 <p class="text-xs text-gray-400 mt-1">Deja vacío para mantener la imagen actual</p>
                 @error('imagen') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+            </div>
+
+            <div>
+                <label for="video" class="block text-sm font-semibold text-gray-700 mb-1">Video <span class="text-gray-400 font-normal">(opcional · máx. 3 min · mp4, mov, avi, webm)</span></label>
+                @if($noticia->video)
+                    <div class="mb-2">
+                        <video src="{{ $noticia->video }}" controls class="w-full max-w-xs rounded-lg border"></video>
+                    </div>
+                @endif
+                <input type="file" id="video" name="video" accept="video/mp4,video/quicktime,video/x-msvideo,video/webm"
+                       class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-[#7B2D8E] transition">
+                <p class="text-xs text-gray-400 mt-1">Deja vacío para mantener el video actual</p>
+                <p id="video-error" class="text-red-500 text-xs mt-1 hidden">El video supera los 3 minutos permitidos.</p>
+                @error('video') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
             </div>
 
             <div>
@@ -79,4 +93,27 @@
         </form>
     </div>
 </div>
+
+@push('scripts')
+<script>
+document.getElementById('video')?.addEventListener('change', function () {
+    const file = this.files[0];
+    const errorEl = document.getElementById('video-error');
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    const video = document.createElement('video');
+    video.preload = 'metadata';
+    video.onloadedmetadata = function () {
+        URL.revokeObjectURL(url);
+        if (video.duration > 180) {
+            errorEl.classList.remove('hidden');
+            document.getElementById('video').value = '';
+        } else {
+            errorEl.classList.add('hidden');
+        }
+    };
+    video.src = url;
+});
+</script>
+@endpush
 @endsection

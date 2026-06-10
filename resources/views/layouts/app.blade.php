@@ -114,6 +114,7 @@
                 <a href="{{ route('eventos.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Eventos</a>
                 <a href="{{ route('noticias.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Noticias</a>
                 <a href="{{ route('boletines.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Boletines</a>
+                <a href="{{ route('convocatorias.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Convocatorias</a>
                 <a href="{{ route('cultura-fisica.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Cultura física</a>
                 <a href="{{ route('deporte.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Deporte</a>
 
@@ -156,6 +157,7 @@
             <a href="{{ route('eventos.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Eventos</a>
             <a href="{{ route('noticias.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Noticias</a>
             <a href="{{ route('boletines.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Boletines</a>
+            <a href="{{ route('convocatorias.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Convocatorias</a>
             <a href="{{ route('cultura-fisica.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Cultura física</a>
             <a href="{{ route('deporte.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
             <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
