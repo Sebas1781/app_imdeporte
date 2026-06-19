@@ -25,7 +25,7 @@
 {{-- ═══════════════════════════════════════════
      SEVAC
 ════════════════════════════════════════════ --}}
-<section class="py-14 bg-white">
+<section id="sevac" class="py-14 bg-white scroll-mt-12">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
         <div class="flex justify-center mb-4">
             <span class="inline-flex items-center gap-2 bg-[#7B2D8E]/10 text-[#7B2D8E] px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
@@ -80,66 +80,9 @@
 </section>
 
 {{-- ═══════════════════════════════════════════
-     CONAC
+     PRESUPUESTO
 ════════════════════════════════════════════ --}}
-<section class="py-14 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-        <div class="flex justify-center mb-4">
-            <span class="inline-flex items-center gap-2 bg-[#7B2D8E]/10 text-[#7B2D8E] px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
-                <i class="fas fa-landmark"></i> CONAC
-            </span>
-        </div>
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">
-            Consejo Nacional de Armonización Contable
-        </h2>
-
-        @if($conacGrupos->isEmpty())
-            <p class="text-center text-gray-400 py-10 text-sm">No hay información disponible.</p>
-        @else
-            <p class="text-gray-500 text-center text-sm mb-8">Selecciona el periodo que deseas consultar.</p>
-            <div class="flex flex-wrap justify-center gap-3 mb-10">
-                @foreach($conacGrupos as $index => $grupo)
-                <button onclick="switchTab('conac', {{ $grupo->id }}, this)"
-                        data-tipo-tab="conac"
-                        class="px-5 py-2.5 rounded-full font-bold text-sm transition border-2 {{ $index === 0 ? 'bg-[#7B2D8E] text-white border-[#7B2D8E]' : 'border-gray-300 text-gray-600 hover:border-[#7B2D8E] hover:text-[#7B2D8E] bg-white' }}">
-                    {{ $grupo->nombre_completo }}
-                </button>
-                @endforeach
-            </div>
-            @foreach($conacGrupos as $index => $grupo)
-            <div id="panel-conac-{{ $grupo->id }}" data-tipo-panel="conac" class="{{ $index !== 0 ? 'hidden' : '' }}">
-                @forelse($grupo->secciones as $seccion)
-                <div class="mb-10">
-                    <h3 class="font-black text-base text-gray-900 uppercase mb-2">{{ $seccion->titulo }}</h3>
-                    <hr class="border-[#7B2D8E]/30 mb-4">
-                    @if($seccion->documentos->isNotEmpty())
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-200 rounded-xl overflow-hidden">
-                        @foreach($seccion->documentos as $doc)
-                        @php $url = $doc->tipo_archivo === 'pdf' ? asset($doc->archivo) : $doc->archivo; @endphp
-                        <a href="{{ $url }}" target="_blank"
-                           class="flex items-center gap-3 p-4 border-r border-b border-gray-200 hover:bg-purple-50 transition group">
-                            <i class="fas fa-file-pdf text-2xl text-[#7B2D8E] shrink-0"></i>
-                            <span class="text-[#7B2D8E] font-bold text-xs uppercase leading-snug group-hover:underline">{{ $doc->nombre }}</span>
-                        </a>
-                        @endforeach
-                    </div>
-                    @else
-                    <p class="text-sm text-gray-400 italic">Sin documentos disponibles.</p>
-                    @endif
-                </div>
-                @empty
-                <p class="text-center text-gray-400 py-8 text-sm">No hay secciones para este periodo.</p>
-                @endforelse
-            </div>
-            @endforeach
-        @endif
-    </div>
-</section>
-
-{{-- ═══════════════════════════════════════════
-     PRESUPUESTO — comentado, descomentar cuando se requiera
-{{-- ════════════════════════════════════════════
-<section class="py-14 bg-white">
+<section id="presupuesto" class="py-14 bg-gray-50 scroll-mt-12">
     <div class="max-w-6xl mx-auto px-4 md:px-6">
         <div class="flex justify-center mb-4">
             <span class="inline-flex items-center gap-2 bg-[#7B2D8E]/10 text-[#7B2D8E] px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
@@ -192,7 +135,63 @@
         @endif
     </div>
 </section>
---}}
+
+{{-- ═══════════════════════════════════════════
+     CONAC
+════════════════════════════════════════════ --}}
+<section id="conac" class="py-14 bg-white scroll-mt-12">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="flex justify-center mb-4">
+            <span class="inline-flex items-center gap-2 bg-[#7B2D8E]/10 text-[#7B2D8E] px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
+                <i class="fas fa-landmark"></i> CONAC
+            </span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">
+            Consejo Nacional de Armonización Contable
+        </h2>
+
+        @if($conacGrupos->isEmpty())
+            <p class="text-center text-gray-400 py-10 text-sm">No hay información disponible.</p>
+        @else
+            <p class="text-gray-500 text-center text-sm mb-8">Selecciona el periodo que deseas consultar.</p>
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                @foreach($conacGrupos as $index => $grupo)
+                <button onclick="switchTab('conac', {{ $grupo->id }}, this)"
+                        data-tipo-tab="conac"
+                        class="px-5 py-2.5 rounded-full font-bold text-sm transition border-2 {{ $index === 0 ? 'bg-[#7B2D8E] text-white border-[#7B2D8E]' : 'border-gray-300 text-gray-600 hover:border-[#7B2D8E] hover:text-[#7B2D8E] bg-white' }}">
+                    {{ $grupo->nombre_completo }}
+                </button>
+                @endforeach
+            </div>
+            @foreach($conacGrupos as $index => $grupo)
+            <div id="panel-conac-{{ $grupo->id }}" data-tipo-panel="conac" class="{{ $index !== 0 ? 'hidden' : '' }}">
+                @forelse($grupo->secciones as $seccion)
+                <div class="mb-10">
+                    <h3 class="font-black text-base text-gray-900 uppercase mb-2">{{ $seccion->titulo }}</h3>
+                    <hr class="border-[#7B2D8E]/30 mb-4">
+                    @if($seccion->documentos->isNotEmpty())
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border border-gray-200 rounded-xl overflow-hidden">
+                        @foreach($seccion->documentos as $doc)
+                        @php $url = $doc->tipo_archivo === 'pdf' ? asset($doc->archivo) : $doc->archivo; @endphp
+                        <a href="{{ $url }}" target="_blank"
+                           class="flex items-center gap-3 p-4 border-r border-b border-gray-200 hover:bg-purple-50 transition group">
+                            <i class="fas fa-file-pdf text-2xl text-[#7B2D8E] shrink-0"></i>
+                            <span class="text-[#7B2D8E] font-bold text-xs uppercase leading-snug group-hover:underline">{{ $doc->nombre }}</span>
+                        </a>
+                        @endforeach
+                    </div>
+                    @else
+                    <p class="text-sm text-gray-400 italic">Sin documentos disponibles.</p>
+                    @endif
+                </div>
+                @empty
+                <p class="text-center text-gray-400 py-8 text-sm">No hay secciones para este periodo.</p>
+                @endforelse
+            </div>
+            @endforeach
+        @endif
+    </div>
+</section>
 
 <script>
 function switchTab(tipo, grupoId, btn) {

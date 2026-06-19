@@ -76,7 +76,7 @@
 
             {{-- Social icons --}}
             <div class="flex items-center gap-2">
-                <a href="#" class="w-8 h-8 bg-[#1877F2] hover:bg-[#1565c0] rounded-full flex items-center justify-center text-white transition">
+                <a href="https://www.facebook.com/UMCFyD/about?locale=es_LA" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-[#1877F2] hover:bg-[#1565c0] rounded-full flex items-center justify-center text-white transition">
                     <i class="fab fa-facebook-f text-sm"></i>
                 </a>
                 <a href="#" class="w-8 h-8 bg-red-600 hover:bg-red-700 rounded-full flex items-center justify-center text-white transition">
@@ -127,9 +127,25 @@
                         <a href="{{ route('transparencia.index') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-t-xl transition">
                             <i class="fas fa-eye text-[#7B2D8E] w-4"></i> Transparencia
                         </a>
-                        <a href="{{ route('transparencia.ley-contabilidad') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] transition">
-                            <i class="fas fa-landmark text-[#7B2D8E] w-4"></i> Ley General de Contabilidad Gubernamental
-                        </a>
+                        <div class="relative group/submenu">
+                            <a href="{{ route('transparencia.ley-contabilidad') }}" class="flex items-center justify-between gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] transition w-full">
+                                <span class="flex items-center gap-2">
+                                    <i class="fas fa-landmark text-[#7B2D8E] w-4"></i> Ley General de Contabilidad Gubernamental
+                                </span>
+                                <i class="fas fa-chevron-left text-xs opacity-50 group-hover/submenu:-translate-x-1 transition-transform"></i>
+                            </a>
+                            <div class="absolute right-full top-0 mr-1 w-48 bg-white text-gray-800 rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50">
+                                <a href="{{ route('transparencia.ley-contabilidad') }}#sevac" class="flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-t-xl transition">
+                                    <i class="fas fa-table-list text-[#7B2D8E] w-4"></i> SEVAC
+                                </a>
+                                <a href="{{ route('transparencia.ley-contabilidad') }}#presupuesto" class="flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] transition">
+                                    <i class="fas fa-coins text-[#7B2D8E] w-4"></i> Presupuesto
+                                </a>
+                                <a href="{{ route('transparencia.ley-contabilidad') }}#conac" class="flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-b-xl transition">
+                                    <i class="fas fa-landmark text-[#7B2D8E] w-4"></i> CONAC
+                                </a>
+                            </div>
+                        </div>
                         <a href="{{ route('transparencia.cuenta-publica') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-b-xl transition">
                             <i class="fas fa-book-open text-[#7B2D8E] w-4"></i> Cuenta Pública
                         </a>
@@ -162,10 +178,13 @@
             <a href="{{ route('deporte.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
             <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
             <a href="{{ route('transparencia.ley-contabilidad') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Ley General de Contabilidad Gubernamental</a>
+            <a href="{{ route('transparencia.ley-contabilidad') }}#sevac" class="block py-2 pl-12 border-b border-[#7B2D8E]/10 text-white/60 text-xs">—— SEVAC</a>
+            <a href="{{ route('transparencia.ley-contabilidad') }}#presupuesto" class="block py-2 pl-12 border-b border-[#7B2D8E]/10 text-white/60 text-xs">—— Presupuesto</a>
+            <a href="{{ route('transparencia.ley-contabilidad') }}#conac" class="block py-2 pl-12 border-b border-[#7B2D8E]/10 text-white/60 text-xs">—— CONAC</a>
             <a href="{{ route('transparencia.cuenta-publica') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Cuenta Pública</a>
             {{-- Redes sociales en menú móvil --}}
             <div class="flex items-center gap-3 pt-3">
-                <a href="#" class="w-8 h-8 bg-[#1877F2] rounded-full flex items-center justify-center text-white">
+                <a href="https://www.facebook.com/UMCFyD/about?locale=es_LA" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-[#1877F2] rounded-full flex items-center justify-center text-white">
                     <i class="fab fa-facebook-f text-sm"></i>
                 </a>
                 <a href="#" class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white">
@@ -211,7 +230,7 @@
                     <h5 class="font-bold text-sm mb-3">Email: buzonquejas.gob.mx</h5>
                     <p class="text-xs text-gray-300 mb-3">Síguenos en</p>
                     <div class="flex gap-3">
-                        <a href="#" class="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition">
+                        <a href="https://www.facebook.com/UMCFyD/about?locale=es_LA" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition">
                             <i class="fab fa-facebook-f text-sm"></i>
                         </a>
                         <a href="#" class="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition">
