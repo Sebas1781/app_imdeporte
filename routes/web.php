@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\RemtysDocumentoController;
 use App\Http\Controllers\Admin\TransparenciaGrupoController;
 use App\Http\Controllers\Admin\TransparenciaSeccionController;
 use App\Http\Controllers\Admin\TransparenciaDocumentoController;
+use App\Http\Controllers\Admin\PadaController;
 
 // Public routes
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
@@ -39,6 +40,7 @@ Route::get('/servicios/remtys', [RemtysPublicController::class, 'index'])->name(
 Route::get('/servicios/remtys/{slug}', [RemtysPublicController::class, 'show'])->name('servicios.remtys.show');
 Route::get('/transparencia/ley-contabilidad', [TransparenciaController::class, 'leyContabilidad'])->name('transparencia.ley-contabilidad');
 Route::get('/transparencia/cuenta-publica', [TransparenciaController::class, 'cuentaPublica'])->name('transparencia.cuenta-publica');
+Route::get('/transparencia/pada', [TransparenciaController::class, 'pada'])->name('transparencia.pada');
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/instituto', [InstitutoController::class, 'index'])->name('instituto.index');
@@ -127,6 +129,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     // Documentos (PDF uploads)
     Route::get('/documentos', [DocumentoController::class, 'index'])->name('documentos.index');
     Route::post('/documentos/aviso-privacidad', [DocumentoController::class, 'upload'])->name('documentos.upload');
+
+    // PADA
+    Route::get('/pada', [PadaController::class, 'index'])->name('pada.index');
+    Route::post('/pada', [PadaController::class, 'upload'])->name('pada.upload');
 
     // Users CRUD
     Route::get('/users', [UserController::class, 'index'])->name('users.index');

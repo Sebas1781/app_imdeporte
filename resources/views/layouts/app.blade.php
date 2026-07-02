@@ -130,8 +130,11 @@
                         <a href="{{ route('transparencia.ley-contabilidad') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] transition">
                             <i class="fas fa-landmark text-[#7B2D8E] w-4"></i> Ley General de Contabilidad Gubernamental
                         </a>
-                        <a href="{{ route('transparencia.cuenta-publica') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-b-xl transition">
+                        <a href="{{ route('transparencia.cuenta-publica') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] transition">
                             <i class="fas fa-book-open text-[#7B2D8E] w-4"></i> Cuenta Pública
+                        </a>
+                        <a href="{{ route('transparencia.pada') }}" class="flex items-center gap-2 px-4 py-3 text-sm hover:bg-[#f3e8f7] hover:text-[#7B2D8E] rounded-b-xl transition">
+                            <i class="fas fa-file-contract text-[#7B2D8E] w-4"></i> PADA
                         </a>
                     </div>
                 </div>
@@ -163,6 +166,7 @@
             <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
             <a href="{{ route('transparencia.ley-contabilidad') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Ley General de Contabilidad Gubernamental</a>
             <a href="{{ route('transparencia.cuenta-publica') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Cuenta Pública</a>
+            <a href="{{ route('transparencia.pada') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— PADA</a>
             {{-- Redes sociales en menú móvil --}}
             <div class="flex items-center gap-3 pt-3">
                 <a href="#" class="w-8 h-8 bg-[#1877F2] rounded-full flex items-center justify-center text-white">
