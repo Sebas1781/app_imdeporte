@@ -7,7 +7,7 @@
 {{-- Banner --}}
 <section class="relative w-full overflow-hidden" style="height: 260px;">
     <div class="absolute inset-0" style="background: linear-gradient(135deg, {{ $categoria->color }}, {{ $categoria->color }}cc);"></div>
-    <div class="absolute inset-0 opacity-10" style="background-image: url('/images/fondo1.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="absolute inset-0 opacity-10" style="background-image: url('{{ $pageImages['fondo1'] ?? '/images/fondo1.jpg' }}'); background-size: cover; background-position: center;"></div>
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mb-4">
             <i class="fas {{ $categoria->icono }} text-white text-3xl"></i>

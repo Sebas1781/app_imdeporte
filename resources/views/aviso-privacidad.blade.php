@@ -6,7 +6,7 @@
 
 {{-- Hero Banner --}}
 <section class="relative w-full overflow-hidden" style="height: 280px;">
-    <img src="/images/INSTITUTO.jpg" alt="Aviso de Privacidad" class="absolute inset-0 w-full h-full object-cover">
+    <img src="{{ $pageImages['instituto'] ?? '/images/INSTITUTO.jpg' }}" alt="Aviso de Privacidad" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
         <h1 class="text-white text-4xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">AVISO DE PRIVACIDAD</h1>

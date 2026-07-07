@@ -56,7 +56,7 @@ use Illuminate\Support\Str;
 {{-- 2. CONVOCATORIAS                                                       --}}
 {{-- ===================================================================== --}}
 <section class="relative w-full overflow-hidden" style="height: clamp(180px, 30vw, 420px);">
-    <img src="/images/convocatorias.jpg" alt="Convocatorias" class="absolute inset-0 w-full h-full object-cover">
+    <img src="{{ $pageImages['convocatorias'] ?? '/images/convocatorias.jpg' }}" alt="Convocatorias" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-linear-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
         <h2 class="text-white text-4xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">CONVOCATORIAS</h2>
@@ -118,7 +118,7 @@ use Illuminate\Support\Str;
 {{-- 3. NOTICIAS DE INTERÉS (BOLETINES)                                     --}}
 {{-- ===================================================================== --}}
 <section class="relative w-full overflow-hidden" style="height: clamp(180px, 30vw, 420px);">
-    <img src="/images/noticias_interes.jpg" alt="Noticias de Interés" class="absolute inset-0 w-full h-full object-cover">
+    <img src="{{ $pageImages['noticias_interes'] ?? '/images/noticias_interes.jpg' }}" alt="Noticias de Interés" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-linear-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
         <h2 class="text-white text-4xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">BOLETINES</h2>
@@ -178,7 +178,7 @@ use Illuminate\Support\Str;
 {{-- 4. IMAGEN MUNICIPIO MEJOR                                              --}}
 {{-- ===================================================================== --}}
 <section class="relative">
-    <img src="/images/fondo1.jpg" alt="El Municipio Mejor" class="w-full h-auto object-cover" style="max-height: 500px;">
+    <img src="{{ $pageImages['fondo1'] ?? '/images/fondo1.jpg' }}" alt="El Municipio Mejor" class="w-full h-auto object-cover" style="max-height: 500px;">
 </section>
 
 
@@ -226,7 +226,7 @@ use Illuminate\Support\Str;
 {{-- 6. IMAGEN PIE (personitas animadas)                                    --}}
 {{-- ===================================================================== --}}
 <section class="relative">
-    <img src="/images/pie.png" alt="IMDEPORTE Tecámac" class="w-full h-auto object-cover">
+    <img src="{{ $pageImages['pie'] ?? '/images/pie.png' }}" alt="IMDEPORTE Tecámac" class="w-full h-auto object-cover">
 </section>
 
 @endsection

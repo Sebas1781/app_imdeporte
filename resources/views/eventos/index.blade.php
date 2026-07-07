@@ -10,7 +10,7 @@
 
 {{-- Hero Banner --}}
 <section class="relative w-full overflow-hidden" style="height: clamp(150px, 25vw, 340px);">
-    <img src="/images/EVENTOS.jpg" alt="Eventos" class="absolute inset-0 w-full h-full object-cover">
+    <img src="{{ $pageImages['eventos'] ?? '/images/EVENTOS.jpg' }}" alt="Eventos" class="absolute inset-0 w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-[#7B2D8E]/85 via-[#7B2D8E]/60 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-center h-full max-w-5xl mx-auto px-8">
         <h1 class="text-white text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-lg">EVENTOS</h1>
@@ -82,7 +82,7 @@
 
 {{-- Imagen pie --}}
 <section class="relative">
-    <img src="/images/pie.png" alt="IMDEPORTE Tecámac" class="w-full h-auto object-cover">
+    <img src="{{ $pageImages['pie'] ?? '/images/pie.png' }}" alt="IMDEPORTE Tecámac" class="w-full h-auto object-cover">
 </section>
 
 @endsection

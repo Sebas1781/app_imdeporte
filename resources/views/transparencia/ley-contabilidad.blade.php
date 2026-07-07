@@ -7,7 +7,7 @@
 {{-- Banner --}}
 <section class="relative w-full overflow-hidden" style="height: 320px;">
     <div class="absolute inset-0 bg-gradient-to-br from-[#7B2D8E] via-[#9B3DAE] to-[#5c1a6e]"></div>
-    <div class="absolute inset-0 opacity-10" style="background-image: url('/images/fondo1.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="absolute inset-0 opacity-10" style="background-image: url('{{ $pageImages['fondo1'] ?? '/images/fondo1.jpg' }}'); background-size: cover; background-position: center;"></div>
     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
         <h1 class="text-white text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg uppercase leading-tight max-w-3xl">
             Ley General de Contabilidad Gubernamental

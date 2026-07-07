@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\RemtysDocumentoController;
 use App\Http\Controllers\Admin\TransparenciaGrupoController;
 use App\Http\Controllers\Admin\TransparenciaSeccionController;
 use App\Http\Controllers\Admin\TransparenciaDocumentoController;
+use App\Http\Controllers\Admin\PageImageController;
 
 // Public routes
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
@@ -167,6 +168,11 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::get('/transparencia/{tipo}/{grupo}/secciones/{seccion}/documentos/crear', [TransparenciaDocumentoController::class, 'create'])->name('transparencia.documentos.create');
     Route::post('/transparencia/{tipo}/{grupo}/secciones/{seccion}/documentos', [TransparenciaDocumentoController::class, 'store'])->name('transparencia.documentos.store');
     Route::delete('/transparencia/{tipo}/{grupo}/secciones/{seccion}/documentos/{documento}', [TransparenciaDocumentoController::class, 'destroy'])->name('transparencia.documentos.destroy');
+
+    // Imágenes de Vistas
+    Route::get('/imagenes-vistas', [PageImageController::class, 'index'])->name('imagenes-vistas.index');
+    Route::get('/imagenes-vistas/{pageImage}/edit', [PageImageController::class, 'edit'])->name('imagenes-vistas.edit');
+    Route::put('/imagenes-vistas/{pageImage}', [PageImageController::class, 'update'])->name('imagenes-vistas.update');
 
     // Instituto
     Route::get('/instituto', [AdminInstitutoController::class, 'index'])->name('instituto.index');

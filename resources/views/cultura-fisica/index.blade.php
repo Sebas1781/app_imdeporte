@@ -117,7 +117,7 @@
 
 {{-- Imagen pie --}}
 <section class="relative">
-    <img src="/images/pie.png" alt="IMDEPORTE Tecámac" class="w-full h-auto object-cover">
+    <img src="{{ $pageImages['pie'] ?? '/images/pie.png' }}" alt="IMDEPORTE Tecámac" class="w-full h-auto object-cover">
 </section>
 
 @endsection
