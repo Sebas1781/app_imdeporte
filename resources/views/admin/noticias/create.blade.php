@@ -34,6 +34,14 @@
             </div>
 
             <div>
+                <label for="video" class="block text-sm font-semibold text-gray-700 mb-1">Video <span class="text-gray-400 font-normal">(opcional · máx. 3 min · mp4, mov, avi, webm)</span></label>
+                <input type="file" id="video" name="video" accept="video/mp4,video/quicktime,video/x-msvideo,video/webm"
+                       class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-[#7B2D8E] transition">
+                <p id="video-error" class="text-red-500 text-xs mt-1 hidden">El video supera los 3 minutos permitidos.</p>
+                @error('video') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+            </div>
+
+            <div>
                 <label for="url_externa" class="block text-sm font-semibold text-gray-700 mb-1">URL Externa (opcional)</label>
                 <input type="url" id="url_externa" name="url_externa" value="{{ old('url_externa') }}"
                        class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:ring-2 focus:ring-[#7B2D8E] focus:border-[#7B2D8E] transition"
@@ -72,4 +80,27 @@
         </form>
     </div>
 </div>
+
+@push('scripts')
+<script>
+document.getElementById('video')?.addEventListener('change', function () {
+    const file = this.files[0];
+    const errorEl = document.getElementById('video-error');
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    const video = document.createElement('video');
+    video.preload = 'metadata';
+    video.onloadedmetadata = function () {
+        URL.revokeObjectURL(url);
+        if (video.duration > 180) {
+            errorEl.classList.remove('hidden');
+            document.getElementById('video').value = '';
+        } else {
+            errorEl.classList.add('hidden');
+        }
+    };
+    video.src = url;
+});
+</script>
+@endpush
 @endsection

@@ -19,7 +19,13 @@
         </a>
 
         @if($noticia->imagen)
-            <img src="{{ $noticia->imagen }}" alt="{{ $noticia->titulo }}" class="w-full h-64 object-cover rounded-xl mb-6">
+            <img src="{{ $noticia->imagen }}" alt="{{ $noticia->titulo }}" class="w-full h-auto rounded-xl mb-6">
+        @endif
+
+        @if($noticia->video)
+            <div class="mb-6">
+                <video src="{{ $noticia->video }}" controls class="w-full rounded-xl"></video>
+            </div>
         @endif
 
         <h1 class="text-3xl font-extrabold text-gray-800 mb-4">{{ $noticia->titulo }}</h1>

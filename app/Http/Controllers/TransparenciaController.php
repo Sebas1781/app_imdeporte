@@ -36,4 +36,12 @@ class TransparenciaController extends Controller
 
         return view('transparencia.cuenta-publica', compact('grupos'));
     }
+
+    public function pada()
+    {
+        $existe = file_exists(public_path('uploads/pada/pada.pdf'));
+        $url    = $existe ? '/uploads/pada/pada.pdf' : null;
+
+        return view('transparencia.pada', compact('existe', 'url'));
+    }
 }

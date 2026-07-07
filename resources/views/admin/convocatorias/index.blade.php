@@ -28,7 +28,7 @@
                 <tr class="hover:bg-gray-50 transition">
                     <td class="px-6 py-4">
                         @if($convocatoria->imagen)
-                            <img src="{{ $convocatoria->imagen }}" alt="{{ $convocatoria->titulo }}" class="w-20 h-12 object-cover rounded-lg border">
+                            <img src="{{ $convocatoria->imagen }}" alt="{{ $convocatoria->titulo }}" class="w-24 h-auto max-h-28 object-contain rounded-lg border bg-gray-50">
                         @else
                             <span class="text-gray-400 text-xs">Sin imagen</span>
                         @endif

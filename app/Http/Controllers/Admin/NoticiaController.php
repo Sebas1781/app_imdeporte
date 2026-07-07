@@ -22,21 +22,26 @@ class NoticiaController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'titulo' => 'required|string|max:255',
+            'titulo'      => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'imagen' => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
+            'imagen'      => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
+            'video'       => 'nullable|mimes:mp4,mov,avi,webm|max:153600',
             'url_externa' => 'nullable|url|max:255',
-            'fecha' => 'required|date',
-            'orden' => 'nullable|integer',
-            'activo' => 'nullable|boolean',
+            'fecha'       => 'required|date',
+            'orden'       => 'nullable|integer',
+            'activo'      => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('imagen')) {
             $data['imagen'] = $this->storeImage($request->file('imagen'), 'noticias');
         }
 
+        if ($request->hasFile('video')) {
+            $data['video'] = $this->storeVideo($request->file('video'), 'noticias/videos');
+        }
+
         $data['activo'] = $request->has('activo');
-        $data['orden'] = $data['orden'] ?? 0;
+        $data['orden']  = $data['orden'] ?? 0;
 
         Noticia::create($data);
 
@@ -51,21 +56,26 @@ class NoticiaController extends Controller
     public function update(Request $request, Noticia $noticia)
     {
         $data = $request->validate([
-            'titulo' => 'required|string|max:255',
+            'titulo'      => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'imagen' => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
+            'imagen'      => 'nullable|mimes:jpeg,jpg,png,gif,webp,bmp,svg,avif|max:5120',
+            'video'       => 'nullable|mimes:mp4,mov,avi,webm|max:153600',
             'url_externa' => 'nullable|url|max:255',
-            'fecha' => 'required|date',
-            'orden' => 'nullable|integer',
-            'activo' => 'nullable|boolean',
+            'fecha'       => 'required|date',
+            'orden'       => 'nullable|integer',
+            'activo'      => 'nullable|boolean',
         ]);
 
         if ($request->hasFile('imagen')) {
             $data['imagen'] = $this->storeImage($request->file('imagen'), 'noticias');
         }
 
+        if ($request->hasFile('video')) {
+            $data['video'] = $this->storeVideo($request->file('video'), 'noticias/videos');
+        }
+
         $data['activo'] = $request->has('activo');
-        $data['orden'] = $data['orden'] ?? 0;
+        $data['orden']  = $data['orden'] ?? 0;
 
         $noticia->update($data);
 

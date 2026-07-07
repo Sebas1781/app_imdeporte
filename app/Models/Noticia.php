@@ -12,6 +12,7 @@ class Noticia extends Model
         'titulo',
         'descripcion',
         'imagen',
+        'video',
         'url_externa',
         'fecha',
         'activo',
