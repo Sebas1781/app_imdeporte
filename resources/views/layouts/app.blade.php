@@ -117,6 +117,7 @@
                 <a href="{{ route('convocatorias.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Convocatorias</a>
                 <a href="{{ route('cultura-fisica.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Cultura física</a>
                 <a href="{{ route('deporte.index') }}" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Deporte</a>
+                <a href="https://becas-imdeporte.systemar.io/" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded hover:bg-[#5c1a6e] transition">Becas</a>
 
                 {{-- Dropdown: Transparencia --}}
                 <div class="relative group">
@@ -179,6 +180,7 @@
             <a href="{{ route('convocatorias.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Convocatorias</a>
             <a href="{{ route('cultura-fisica.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Cultura física</a>
             <a href="{{ route('deporte.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Deporte</a>
+            <a href="https://becas-imdeporte.systemar.io/" target="_blank" rel="noopener noreferrer" class="block py-2 border-b border-[#7B2D8E]/50">Becas</a>
             <a href="{{ route('transparencia.index') }}" class="block py-2 border-b border-[#7B2D8E]/50">Transparencia</a>
             <a href="{{ route('transparencia.ley-contabilidad') }}" class="block py-2 pl-6 border-b border-[#7B2D8E]/30 text-white/80 text-sm">— Ley General de Contabilidad Gubernamental</a>
             <a href="{{ route('transparencia.ley-contabilidad') }}#sevac" class="block py-2 pl-12 border-b border-[#7B2D8E]/10 text-white/60 text-xs">—— SEVAC</a>
