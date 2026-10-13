@@ -233,7 +233,7 @@
                 </div>
                 {{-- Col 4: Contacto y redes --}}
                 <div>
-                    <h5 class="font-bold text-sm mb-3">Email: buzonquejas.gob.mx</h5>
+                    <h5 class="font-bold text-sm mb-3">Email: imde_unidadjuridicaytransparencia@tecamac.gob.mx</h5>
                     <p class="text-xs text-gray-300 mb-3">Síguenos en</p>
                     <div class="flex gap-3">
                         <a href="https://www.facebook.com/UMCFyD/about?locale=es_LA" target="_blank" rel="noopener noreferrer" class="w-8 h-8 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition">
